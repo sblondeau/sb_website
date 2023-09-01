@@ -1,0 +1,386 @@
+/***** Arrow block ****/
+.arrow-block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: var(--spacing);
+    max-width: max-content;
+    font-family: var(--font-arrow);
+    --font-size: 1.8;
+}
+
+:where(.arrow-block-icon, .arrow, .arrow-block-text) {
+    transform: rotate(calc(var(--rotate, 0deg) + var(--rotate-modifier, 0deg))) scale(var(--scale, 0.8));
+    transition: 0.3s;
+    width: clamp(4rem, 10vw, var(--max-size, 10rem));
+    opacity: var(--opacity, 0.7);
+}
+
+.arrow-block-icon {
+    --scale: 0.6;
+    --opacity: 0.1;
+}
+
+.arrow-block-text {
+    --rotate: -5deg;
+}
+
+.arrow {
+    --rotate: 85deg;
+    --scale: 0.6;
+}
+
+.arrow-block:hover :where(.arrow, .arrow-block-icon, .arrow-block-text) {
+    --scale: 0.9;
+    --rotate-modifier: -5deg;
+    --opacity: 0.9;
+}
+
+/************ HEADER *********/
+header {
+    position: relative;
+    width: fit-content;
+}
+
+h1 {
+    --font-size: 6;
+    font-weight: 100;
+    font-family: var(--font-title);
+    width: min-content;
+    line-height: 110%;
+    margin-block-end: var(--spacing);
+}
+
+h2 {
+    --font-size: 1.8;
+    font-family: var(--font-text);
+    font-weight: 300;
+}
+
+h2 strong {
+    font-weight: 500;
+}
+
+:where(.php-icon, .remote-icon) {
+    position: absolute;
+    max-width: 7rem;
+    opacity: 0.05;
+    right: -20%;
+    bottom: 0%;
+    transform: rotate(10deg);
+    transition: 0.3s;
+}
+
+.remote-icon {
+    left: -30%;
+    transform: scale(0.8) rotate(-10deg);
+    bottom: -20%;
+}
+
+h2:hover+.icon-dark {
+    opacity: 0.9;
+}
+
+/************ LEFT CONTENT *********/
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    margin-top: var(--spacing);
+}
+
+ul {
+    --font-size: 1.8;
+    margin-block: var(--spacing-xs);
+}
+
+ul>li {
+    position: relative;
+}
+
+.arrow-small {
+    min-width: clamp(2.5rem, 5vw, 4rem);
+}
+
+li .arrow-block {
+    position: absolute;
+    left: 100%;
+    opacity: 0.1;
+    gap: 0;
+    transition: 0.3s;
+    transition-delay: 0.1s;
+    transform: rotate(calc(var(--rotate, 0) * var(--rotate-modifier, 1.2))) translateX(calc(var(--translateX, 0) + var(--translate-modifier, 10%))) translateY(var(--translateY, 0));
+}
+
+li .arrow-block-text {
+    --font-size: 1.2;
+    min-width: 8rem;
+}
+
+li .arrow-small {
+    transform: scale(-0.6, 0.6);
+}
+
+li .arrow-block .icon {
+    width: 4rem;
+}
+
+.skills .arrow-block {
+    --rotate: -20deg;
+    --translateX: 0%;
+    --translateY: -5%;
+    transform-origin: left bottom;
+}
+
+.portfolio .arrow-block {
+    --rotate: 2deg;
+    --translateX: -15%;
+    transform-origin: left;
+
+}
+
+.offer .arrow-block {
+    --translateY: 35%;
+    --rotate: 13deg;
+    --translateX: -45%;
+    transform-origin: left top;
+}
+
+li a:hover+.arrow-block {
+    opacity: 1;
+    --translate-modifier: 0%;
+    --rotate-modifier: 1;
+}
+
+li:hover {
+    transform: scale(1.05);
+    transform-origin: left;
+    transition: 0.2s;
+}
+
+
+.question .arrow-block-text {
+    --rotate: 5deg;
+}
+
+
+/********  PICTURE *********/
+aside {
+    position: relative;
+}
+
+.me {
+    transform: rotate(var(--rotate, 2deg));
+    border-radius: 1.5rem;
+    box-shadow: 0.5rem 0.5rem 1rem -0.5rem var(--neutral);
+    transition: 0.3s;
+    /* width: clamp(280px, 50vw, 360px); */
+}
+
+.me:hover {
+    --rotate: 3deg;
+}
+
+aside .arrow-block {
+    position: absolute;
+    opacity: 0.1;
+    transition: 0.2s;
+}
+
+.me:hover~.arrow-block {
+    opacity: 0.9;
+    transition-delay: 0.2s;
+}
+
+aside .arrow-block-text {
+    font-size: 1.6rem;
+    width: 12rem;
+}
+
+.glasses {
+    top: -12%;
+    left: -42%;
+}
+
+.glasses .arrow-block-text {
+    --rotate: -20deg;
+}
+
+.glasses .arrow {
+    position: absolute;
+    bottom: -115%;
+    left: 50%;
+    --scale: 0.85, -0.85;
+    filter: drop-shadow(0 0 2px var(--light));
+
+}
+
+.glasses .arrow:hover {
+    --scale: 0.85, -0.85;
+}
+
+.hair {
+    top: -16%;
+    right: -50%;
+}
+
+.hair .arrow-block-text {
+    --rotate: 10deg;
+}
+
+.hair .arrow {
+    position: absolute;
+    bottom: -140%;
+    left: -35%;
+    --scale: -0.8, 0.8;
+    --rotate: 8deg;
+}
+
+.hair .arrow:hover {
+    --scale: -0.8, 0.8;
+}
+
+.t-shirt {
+    right: -20%;
+    bottom: -30%;
+}
+
+.t-shirt .arrow-block-text {
+    --rotate: -3deg;
+}
+
+.t-shirt .arrow {
+    position: absolute;
+    top: -130%;
+    left: -33%;
+    --scale: -0.8, 0.8;
+    --rotate: 80deg;
+}
+
+.t-shirt .arrow:hover {
+    --scale: -0.8, 0.8;
+}
+
+
+
+/** BONUS **/
+.rocket {
+    opacity: 0.1;
+    transform: rotate(40deg) translateX(0) translateY(0);
+    transform-origin: bottom;
+    width: 5rem;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    --animation-time: 5s;
+    animation: launch var(--animation-time) linear forwards;
+    animation-play-state: paused;
+}
+
+.rocket .rocket-text {
+    position: absolute;
+    bottom: 0;
+    animation: fadein 0.5s linear calc(var(--animation-time) - 0.5s) forwards;
+    animation-play-state: paused;
+    opacity: 0;
+    transform: rotate(-45deg);
+    font-family: var(--font-arrow);
+    min-width: max-content;
+}
+
+.rocket:hover {
+    opacity: 1;
+    animation-play-state: running;
+    transition: 0.2s;
+}
+
+.rocket:hover div {
+    animation-play-state: running;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes launch {
+    0% {
+        transform: rotate(40deg);
+        left: 50%;
+    }
+
+    25% {
+        bottom: 25%;
+        left: 48%;
+        transform: rotate(50deg);
+    }
+
+    50% {
+        bottom: 50%;
+        left: 50%;
+        transform: rotate(55deg);
+
+    }
+
+    75% {
+        bottom: 75%;
+        left: 49%;
+        transform: rotate(49deg);
+
+    }
+
+    100% {
+        bottom: 97%;
+        left: 48%;
+        transform: rotate(47deg);
+    }
+}
+
+@media screen and (width < 720px) {
+    ul {
+        transform: translate(-50px);
+    }
+
+    .me {
+        width: 300px;
+    }
+    aside {
+        margin-block-start: var(--spacing2);
+    }
+    aside .arrow {
+        display: none;
+    }
+
+    aside .arrow-block {
+        opacity: 0.8;
+        height: fit-content;
+    }
+    aside .arrow-block-text {
+        background-color: var(--light-transparent);
+        border-radius: 1rem;
+        padding: var(--spacing-xs);
+    }
+
+
+    aside .hair {
+        top: -5%;
+        right: -15%;
+    }
+
+    aside .glasses {
+        inset: -5%;
+    }
+
+    aside .t-shirt {
+        bottom: -5%;
+        right: 25%;
+    }
+
+} 
+
