@@ -12,6 +12,8 @@
 
     --font-arrow: 'Kranky', cursive;
     --primary: #055EB0;
+    --primary-light: #d9e2e9;
+
     --neutral: #a3b0bd;
     --dark: #030d18;
     --light: #f6f8fa;
@@ -150,3 +152,27 @@ a:hover {
         color: var(--light);
     }
 } */
+
+/****** NAV *****/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing);
+    padding: var(--spacing);
+    padding-block-end:0;
+    margin: auto;
+}
+ 
+nav .icon {
+    min-width: min-content;
+}
+nav h1 {
+    --font-size:2;
+}
+nav :is(.me) {
+    width: 4rem;
+    transform: rotate(3deg);
+    margin-block-end: var(--spacing);
+}
+

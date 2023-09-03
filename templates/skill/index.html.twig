@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SkillController!
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('styles/skills.css') }}">
+{% endblock %}
+
+{% block body %}
+
+	<header>
+		{% include 'components/_navbar.html.twig' %}
+	</header>
+	<main>
+		<section>
+			<div class="title">
+				<h1>Mes compétences</h1>
+				<h2>Pourquoi me faire confiance ?</h2>
+			</div>
+			<div class="skills">
+				{% for i in 0..5 %}
+
+					<article>
+						<h2>Backend</h2>
+						<div class="article-content">
+							<img class="icon" src="{{ asset('images/page-layout.png')}}" alt="">
+							<ul>
+								{% for skill in skills %}
+									<li>{{ skill.name }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</article>
+				{% endfor %}
+
+			</div>
+		</section>
+	</main>
+{% endblock %}

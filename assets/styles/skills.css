@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 10vh;
+    --container: 1480px;
+}
+
+:where(main, header) {
+    width: clamp(360px, 75vw, var(--container));
+}
+
+main {
+    padding: var(--spacing2);
+    padding-block-start: var(--spacing-xs);
+    margin: auto;
+}
+
+main .title {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: var(--spacing3);
+    margin-block-end: var(--spacing2);
+}
+
+main h1 {
+    --font-size: 3;
+}
+
+main .title h2 {
+    --font-size: 2;
+    color: var(--dark);
+    font-weight: 100;
+}
+
+:where(section) {
+    width: 100%;
+}
+
+.skills {
+    --article-size: 415px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--article-size), 100%), 1fr));
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: var(--spacing4);  
+} 
+
+article {
+    padding: var(--spacing);
+    border-radius: var(--spacing-xs);
+}
+
+article h2 {
+    --font-size: 1.8;
+    margin-block-end: var(--spacing);
+    margin-inline-start: var(--spacing-xs);
+}
+
+article:first-child {
+    background-color: var(--primary-light);
+    border: 3px dashed var(--neutral);
+    transform: rotate(-1deg);
+}
+
+.article-content {
+    display: flex;
+    gap: var(--spacing);
+}
+
+.article-content .icon {
+    --font-size: 5;
+    align-self: flex-start;
+}
