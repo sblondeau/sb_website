@@ -10,7 +10,13 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 class SkillFixtures extends Fixture implements DependentFixtureInterface
 {
     public const SKILLS = [
-        'backend' => ['PHP', 'Symfony', 'MySQL', 'SOLID'],
+        'backend' => [
+            'PHP 8',
+            'Spécialisation Symfony 6',
+            'Qualité logicielle (SOLID, TDD, KISS)',
+            'MySQL, PostgreSQL',
+            'Api platform',
+        ],
         'frontend' => ['JS', 'CSS', 'HTML'],
         'uxui' => ['Figma', 'Inkscape'],
     ];
@@ -29,7 +35,7 @@ class SkillFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
-    public function getDependencies() 
+    public function getDependencies()
     {
         return [
             SkillCategoryFixtures::class,

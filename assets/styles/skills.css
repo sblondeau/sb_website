@@ -49,8 +49,10 @@ main .title h2 {
 article {
     padding: var(--spacing);
     border-radius: var(--spacing-xs);
-}
+    border: 3px dashed var(--neutral);
+}  
 
+ 
 article h2 {
     --font-size: 1.8;
     margin-block-end: var(--spacing);

@@ -20,14 +20,14 @@
 				<h2>Pourquoi me faire confiance ?</h2>
 			</div>
 			<div class="skills">
-				{% for i in 0..5 %}
+				{% for skillCategory in skillCategories %}
 
 					<article>
-						<h2>Backend</h2>
+						<h2>{{ skillCategory.name }}</h2>
 						<div class="article-content">
-							<img class="icon" src="{{ asset('images/page-layout.png')}}" alt="">
+							<img class="icon" src="{{ asset('images/' ~ skillCategory.icon )}}" alt="">
 							<ul>
-								{% for skill in skills %}
+								{% for skill in skillCategory.skills %}
 									<li>{{ skill.name }}</li>
 								{% endfor %}
 							</ul>
