@@ -19,20 +19,35 @@
 				<h1>Mes compétences</h1>
 				<h2>Pourquoi me faire confiance ?</h2>
 			</div>
-			<div class="skills">
-				{% for skillCategory in skillCategories %}
+			<p class="phrase">
+				<img class="icon" src="{{ asset('images/right-arrow.png' )}}" alt="">
+				<strong>+ 15 ans&nbsp;</strong>
+				d’expérience en développment web, niveau bac +8
+				<img class="knife-icon" src="{{ asset('images/swiss-knife.png' )}}" alt="un couteau suisse">
+			</p>
 
-					<article>
-						<h2>{{ skillCategory.name }}</h2>
-						<div class="article-content">
-							<img class="icon" src="{{ asset('images/' ~ skillCategory.icon )}}" alt="">
-							<ul>
-								{% for skill in skillCategory.skills %}
-									<li>{{ skill.name }}</li>
-								{% endfor %}
-							</ul>
+			<div class="skills">
+
+
+				{% for skillCategory in skillCategories %}
+					<div class="article-wrapper">
+						<article>
+							<h2>{{ skillCategory.name }}</h2>
+							<div class="article-content">
+								<img class="icon" src="{{ asset('images/' ~ skillCategory.icon )}}" alt="">
+								<ul>
+									{% for skill in skillCategory.skills %}
+										<li>{{ skill.name }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</article>
+						<div class="arrow-block">
+							<span class="arrow-block-text">{{ skillCategory.description }}
+								<img class="arrow icon" src="{{ asset('images/arrows/turn-right.png')}}" alt="">
+							</span>
 						</div>
-					</article>
+					</div>
 				{% endfor %}
 
 			</div>

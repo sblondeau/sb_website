@@ -17,7 +17,7 @@
     --neutral: #a3b0bd;
     --dark: #030d18;
     --light: #f6f8fa;
-    --light-transparent: #f6f8fa66;
+    --light-transparent: #f6f8fa97;
     --font-size: 1;
 }
 
@@ -172,7 +172,20 @@ nav h1 {
 }
 nav :is(.me) {
     width: 4rem;
-    transform: rotate(3deg);
+    transform: rotate(var(--rotate, 3deg)) scale(var(--scale, 1));
     margin-block-end: var(--spacing);
+    transition: 0.5s;
 }
 
+nav a:any-link {
+    text-decoration: none;
+}
+
+nav a:hover .icon {
+    transform: scale(1.1);
+} 
+
+nav .me:hover {
+    --rotate: 2deg;
+    --scale: 1.3;
+} 

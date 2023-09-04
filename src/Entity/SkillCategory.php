@@ -24,6 +24,9 @@ class SkillCategory
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Skill::class)]
     private Collection $skills;
 
+    #[ORM\Column(length: 255)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
@@ -84,6 +87,18 @@ class SkillCategory
                 $skill->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
