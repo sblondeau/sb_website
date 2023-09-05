@@ -70,7 +70,6 @@ main .title h2 {
     align-items: stretch;
 }
 
-
 article {
     padding: var(--spacing);
     border-radius: var(--spacing-xs);
@@ -174,18 +173,4 @@ article:hover+.arrow-block {
 .resume .arrow {
     width: 3.5rem;
     transform: rotate(110deg);
-}
-
-@keyframes launch {
-    from {
-        transform: translate(0);
-    }
-
-    to {
-        transform: translate(100vh);
-    }
-}
-
-@keyframes destroy {
-    
 }

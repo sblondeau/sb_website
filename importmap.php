@@ -18,4 +18,28 @@ return [
         'path' => 'app.js',
         'preload' => true,
     ],
+    '@hotwired/stimulus' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@hotwired/stimulus@3.2.2/+esm',
+    ],
+    '@symfony/stimulus-bundle' => [
+        'path' => '@symfony/stimulus-bundle/loader.js',
+    ],
+    '@swup/fade-theme' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@swup/fade-theme@1.0.5/+esm',
+    ],
+    '@swup/slide-theme' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@swup/slide-theme@1.0.5/+esm',
+    ],
+    '@swup/forms-plugin' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@swup/forms-plugin@2.0.1/+esm',
+    ],
+    '@swup/debug-plugin' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@swup/debug-plugin@3.0.0/+esm',
+    ],
+    'swup' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/swup@3.1.1/+esm',
+    ],
+    '@hotwired/turbo' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@hotwired/turbo@7.3.0/+esm',
+    ],
 ];
