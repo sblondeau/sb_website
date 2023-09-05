@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New SkillCategory{% endblock %}
+{% block title %}SB Admin | Catégories
+{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('styles/skills.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/admin.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Create new SkillCategory</h1>
-
-    {{ include('admin_skill_category/_form.html.twig') }}
-
-    <a href="{{ path('app_admin_skill_category_index') }}">back to list</a>
+	<turbo-frame id="category_new">
+		<article class="article-edit">
+			<h2>Ajouter une catégorie de compétences</h2>
+			{{ form_start(form, {'action': path('app_admin_skill_category_new')}) }}
+			{{ form_widget(form) }}
+			<button data-turbo-frame="_top" class="btn">{{ button_label|default('Ajouter') }}</button>
+			{{ form_end(form) }}
+		</article>
+	</turbo-frame>
 {% endblock %}

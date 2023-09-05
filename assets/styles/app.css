@@ -133,6 +133,10 @@ a:hover {
     transition: 0.3s;
 }
 
+.btn svg {
+    fill: var(--light);
+}
+
 :is(.btn) {
     text-decoration: none;
 }
@@ -152,6 +156,24 @@ a:hover {
 :is(.btn:focus) {
     box-shadow: 0 0 6px 3px var(--primary);
 }
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+}
+
+.btn-outline svg {
+    fill: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: transparent;
+}
+
+.btn-outline:active {
+    background-color: transparent;
+}
+
 
 .icon {
     width: clamp(calc(var(--font-size) * 0.8rem), calc(var(--font-size) * 1.25vw), calc(var(--font-size) * 1rem));
@@ -174,6 +196,12 @@ a:hover {
     border: 1px solid var(--neutral);
     border-radius: 4px;
     padding: var(--spacing-xs);
+}
+
+:where(.help-text){
+    --font-size: 1.1;
+    font-weight: lighter;
+    color: var(--dark);
 }
 
 /* @media (prefers-color-scheme: dark) {

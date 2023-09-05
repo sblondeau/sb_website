@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('app_admin_skill_category_delete', {'id': skill_category.id}) }}" 
-onsubmit="return confirm('Confirmer la suppression ?');">
+onsubmit="return confirm('Confirmer la suppression ?');" data-turbo-frame="_top">
 	<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ skill_category.id) }}">
 	<button class="btn btn-outline">
 		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewbox="0 0 16 16">

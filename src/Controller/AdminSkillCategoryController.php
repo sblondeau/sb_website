@@ -18,18 +18,21 @@ class AdminSkillCategoryController extends AbstractController
     public function index(SkillCategoryRepository $skillCategoryRepository): Response
     {
         return $this->render('admin_skill_category/index.html.twig', [
-            'skill_categories' => $skillCategoryRepository->findBy([], ['id'=>'ASC']),
+            'skill_categories' => $skillCategoryRepository->findBy([], ['position' => 'ASC']),
         ]);
     }
 
     #[Route('/new', name: 'app_admin_skill_category_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SkillCategoryRepository $skillCategoryRepository): Response
     {
         $skillCategory = new SkillCategory();
         $form = $this->createForm(SkillCategoryType::class, $skillCategory);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $lastCategory = $skillCategoryRepository->findOneBy([], ['position' => 'DESC']);
+            $maxPosition = $lastCategory?->getPosition() ?? 0;
+            $skillCategory->setPosition(($maxPosition + 1));
             $entityManager->persist($skillCategory);
             $entityManager->flush();
 
@@ -67,11 +70,33 @@ class AdminSkillCategoryController extends AbstractController
             'form' => $form,
         ]);
     }
+    #[Route('/sort/{id}/{direction}', name: 'app_admin_skill_category_sort', methods: ['POST'])]
+    public function sort(Request $request, SkillCategory $skillCategory, string $direction, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('sort' . $skillCategory->getId(), $request->request->get('_token'))) {
+
+            $skillCategory->setDescription($direction);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('app_admin_skill_category_index', [], Response::HTTP_SEE_OTHER);
+    }
 
     #[Route('/{id}', name: 'app_admin_skill_category_delete', methods: ['POST'])]
-    public function delete(Request $request, SkillCategory $skillCategory, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$skillCategory->getId(), $request->request->get('_token'))) {
+    public function delete(
+        Request $request,
+        SkillCategory $skillCategory,
+        EntityManagerInterface $entityManager,
+        SkillCategoryRepository $skillCategoryRepository,
+    ): Response {
+        if ($this->isCsrfTokenValid('delete' . $skillCategory->getId(), $request->request->get('_token'))) {
+            $actualPosition = $skillCategory->getPosition();
+            $categories = $skillCategoryRepository->findAll();
+
+            array_map(function ($category) use ($actualPosition) {
+                if ($category->getPosition() > $actualPosition) {
+                    $category->setPosition($category->getPosition() - 1);
+                }
+            }, $categories);
             $entityManager->remove($skillCategory);
             $entityManager->flush();
         }

@@ -18,8 +18,11 @@ class SkillCategoryFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        $i = 0;
         foreach (self::SKILL_CATEGORIES as $skillCategoryCode => $skillCategoryData) {
+            $i++;
             $skillCategory = new SkillCategory();
+            $skillCategory->setPosition($i);
             $skillCategory->setName($skillCategoryData[0]);
             $skillCategory->setDescription($skillCategoryData[1]);
             $skillCategory->setIcon($skillCategoryCode . '.png');

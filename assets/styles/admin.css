@@ -1,26 +1,10 @@
 body {
     animation: none;
 }
-
-
-svg {
-    fill: var(--primary);
-}
-
-svg:hover {
-    transform: scale(1.2);
-}
-
-.btn-outline {
-    background-color: transparent;
-    border: 1px solid var(--primary);
-}
-
-.btn-outline:hover {
-    background-color: transparent;
-}
-.btn-outline:active {
-    background-color: transparent;
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 article h2 {
@@ -52,4 +36,17 @@ article h2 > div {
 
 .article-edit button {
     align-self: flex-end;
+}
+
+.order {
+    --font-size:1.2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--spacing-xs);
+    width: 100%;
+}
+
+.order .btn {
+    padding-inline: var(--spacing-xs);
 }

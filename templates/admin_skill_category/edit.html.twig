@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit SkillCategory
+{% block title %}SB Admin | Catégories
 {% endblock %}
 
 {% block stylesheets %}
@@ -10,13 +10,11 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Edit SkillCategory</h1>
-	<turbo-frame id="article_{{ skill_category.id }}">
+
+	<turbo-frame id="category_{{ skill_category.id }}">
         <article class="article-edit">
 		{{ include('admin_skill_category/_form.html.twig', {'button_label': 'Modifier'}) }}
         </article>
 	</turbo-frame>
-	<a href="{{ path('app_admin_skill_category_index') }}">back to list</a>
 
-	{{ include('admin_skill_category/_delete_form.html.twig') }}
 {% endblock %}

@@ -26,13 +26,16 @@ class SkillCategory
     #[ORM\Column(length: 255)]
     private ?string $icon = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Skill::class)]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Skill::class, cascade: ['remove'])]
     private Collection $skills;
 
     #[Assert\NotBlank]
     #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255)]
     private ?string $description = null;
+
+    #[ORM\Column]
+    private ?int $position = null;
 
     public function __construct()
     {
@@ -106,6 +109,18 @@ class SkillCategory
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): static
+    {
+        $this->position = $position;
 
         return $this;
     }
