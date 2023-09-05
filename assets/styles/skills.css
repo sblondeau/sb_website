@@ -175,3 +175,17 @@ article:hover+.arrow-block {
     width: 3.5rem;
     transform: rotate(110deg);
 }
+
+@keyframes launch {
+    from {
+        transform: translate(0);
+    }
+
+    to {
+        transform: translate(100vh);
+    }
+}
+
+@keyframes destroy {
+    
+}
