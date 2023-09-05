@@ -12,6 +12,8 @@ class SkillCategoryFixtures extends Fixture
         'backend' => ['Développeur Backend', 'Parce qu\'un code bien écrit, ça peut-être beau aussi !'],
         'frontend' => ['Frontend', 'J\'aime passionnement le CSS et je n\'ai pas peur de le dire'],
         'uxui' => ['UX/UI', 'Ergonomie, accessibilité, ça n\'empêche pas de faire joli'],
+        'devops' => ['Devops', 'Automatisation'],
+        'project' => ['Gestion de projet', '7 ans de formation, +100 projets élèves gérés'],
     ];
 
     public function load(ObjectManager $manager): void

@@ -19,14 +19,14 @@
 					Développeur
 					<strong>PHP/Symfony</strong>
 				</h2>
-				<img class="icon-dark php-icon" src="{{ asset('images/php.png') }}" alt="">
+				<img class="icon-dark php-icon hide-sm" src="{{ asset('images/php.png') }}" alt="">
 
 				<h2>
 					<img class="icon icon-dark" src="{{ asset('images/work-from-home.png')}}" alt="">
 					100%
 					<strong>télétravail</strong>
 				</h2>
-				<img class="icon-dark remote-icon" src="{{ asset('images/webinar.png') }}" alt="">
+				<img class="icon-dark remote-icon hide-sm" src="{{ asset('images/webinar.png') }}" alt="">
 			</div>
 			<h2></header>
 			<main>
@@ -38,24 +38,33 @@
 				<div>
 					<ul>
 						<li class="skills">
-							<a href="{{ path('app_skill') }}">Mes compétences</a>
-							<div class="arrow-block ">
+							<a href="{{ path('app_skill') }}">
+								<img class="icon" src="{{ asset('images/right-arrow.png') }}" alt="">
+								Mes compétences
+							</a>
+							<div class="arrow-block hide-sm">
 								<img class="arrow-small" src="{{ asset('images/arrows/double-loop.png') }}" alt="">
 								<span class="arrow-block-text">Découvrir ce que je sais faire</span>
 								<img class="icon" src="{{ asset('images/skills.png') }}" alt="">
 							</div>
 						</li>
 						<li class="portfolio">
-							<a href="{{ path('app_home') }}">Mes réalisations</a>
-							<div class="arrow-block ">
+							<a href="{{ path('app_home') }}">
+								<img class="icon" src="{{ asset('images/right-arrow.png') }}" alt="">
+								Mes réalisations
+							</a>
+							<div class="arrow-block hide-sm">
 								<img class="arrow-small" src="{{ asset('images/arrows/double-loop.png') }}" alt="">
 								<span class="arrow-block-text">Ce que j'ai déjà fait</span>
 								<img class="icon" src="{{ asset('images/portfolio.png') }}" alt="">
 							</div>
 						</li>
 						<li class="offer">
-							<a href="{{ path('app_home') }}">Mon offre</a>
-							<div class="arrow-block offer">
+							<a href="{{ path('app_home') }}">
+								<img class="icon" src="{{ asset('images/right-arrow.png') }}" alt="">
+								Mon offre
+							</a>
+							<div class="arrow-block offer hide-sm">
 								<img class="arrow-small" src="{{ asset('images/arrows/double-loop.png') }}" alt="">
 								<span class="arrow-block-text">Ce que je peux faire pour vous</span>
 								<img class="icon" src="{{ asset('images/offer.png') }}" alt="">
@@ -82,20 +91,20 @@
 				<span class="arrow-block-text">
 					J'ai des lunettes, un vrai gage de sérieux
 				</span>
-				<img class="arrow" src="{{ asset('images/arrows/snake.png')}}" alt="">
+				<img class="arrow hide-sm" src="{{ asset('images/arrows/snake.png')}}" alt="">
 			</div>
 			<div class="arrow-block hair">
 				<span class="arrow-block-text">
 					15 ans d'XP, ça se voit aux cheveux blancs
 				</span>
-				<img class="arrow" src="{{ asset('images/arrows/turn-right.png')}}" alt="">
+				<img class="arrow hide-sm" src="{{ asset('images/arrows/turn-right.png')}}" alt="">
 
 			</div>
 			<div class="arrow-block t-shirt">
 				<span class="arrow-block-text">
 					En plus j’ai des T-shirts sympas, faut pas hésiter
 				</span>
-				<img class="arrow" src="{{ asset('images/arrows/rotated-right.png')}}" alt="">
+				<img class="arrow hide-sm " src="{{ asset('images/arrows/rotated-right.png')}}" alt="">
 			</div>
 		</aside>
 		<div class="rocket">

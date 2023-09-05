@@ -32,7 +32,7 @@
 						<article>
 							<h2>{{ skillCategory.name }}</h2>
 							<div class="article-content">
-								<img class="icon" src="{{ asset('images/' ~ skillCategory.icon )}}" alt="">
+								<img class="icon icon-dark" src="{{ asset('images/' ~ skillCategory.icon )}}" alt="">
 								<ul>
 									{% for skill in skillCategory.skills %}
 										<li>{{ skill.name }}</li>
@@ -60,4 +60,14 @@
 			</div>
 		</section>
 	</main>
+	<footer>
+		<a href="{{ path('app_home')}}">
+			<img class="icon" src="{{ asset('images/home.png') }}" alt="">
+			Retour à l'accueil
+		</a>
+		<a href="#">
+			<img class="icon" src="{{ asset('images/portfolio.png') }}" alt="">
+			Voir mes réalisations
+		</a>
+	</footer>
 {% endblock %}

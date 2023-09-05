@@ -19,6 +19,8 @@ class SkillFixtures extends Fixture implements DependentFixtureInterface
         ],
         'frontend' => ['JS', 'CSS', 'HTML'],
         'uxui' => ['Figma', 'Inkscape'],
+        'devops' => ['Docker', 'Github action'],
+        'project' => ['Scrum', 'Agilité'],
     ];
 
     public function load(ObjectManager $manager): void

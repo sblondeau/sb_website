@@ -90,6 +90,7 @@ main {
 
 :where(a:any-link) {
     color: var(--dark);
+    text-decoration: none;
 }
 
 a:hover {
@@ -162,6 +163,8 @@ nav {
     padding: var(--spacing);
     padding-block-end:0;
     margin: auto;
+    border-block-end: 2px dashed var(--primary-light);
+
 }
  
 nav .icon {
@@ -177,15 +180,29 @@ nav :is(.me) {
     transition: 0.5s;
 }
 
-nav a:any-link {
+nav .me:hover {
+    --rotate: 8deg;
+    --scale: 1;
+} 
+
+/**** footer ****/
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing2);
+    padding-block-end: var(--spacing);
+    margin-block-start: var(--spacing2);
+    border-block-start: 2px dashed var(--primary-light);
+}
+
+:is(nav, footer) a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
     text-decoration: none;
 }
 
-nav a:hover .icon {
+:is(nav, footer) a:hover .icon {
     transform: scale(1.1);
-} 
-
-nav .me:hover {
-    --rotate: 2deg;
-    --scale: 1.3;
 } 

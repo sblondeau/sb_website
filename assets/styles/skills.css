@@ -6,7 +6,7 @@ body {
     --container: 1480px;
 }
 
-:where(main, header) {
+:where(main, header, footer) {
     width: clamp(360px, 75vw, var(--container));
 }
 
@@ -66,7 +66,6 @@ main .title h2 {
     --article-size: 415px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(var(--article-size), 100%), 1fr));
-    grid-template-rows: 1fr 1fr 1fr;
     gap: var(--spacing4);
     align-items: stretch;
 }
@@ -110,8 +109,10 @@ article h2 {
 }
 
 .article-wrapper .arrow-block-text {
+    display: flex;
+    align-items: baseline;
     border-radius: 1rem;
-    margin-block-start: calc(var(--spacing) * -1);
+    margin-block-start: calc(var(--spacing) * -1.5);
     width: fit-content;
 }
 
@@ -138,7 +139,8 @@ article:hover+.arrow-block {
 .resume {
     height: min-content;
     align-self: center;
-    position: relative
+    position: relative;
+    margin-block-start: var(--spacing2);
 }
 
 .resume article {
@@ -156,14 +158,20 @@ article:hover+.arrow-block {
 
 .resume .arrow-block {
     position: absolute;
-    top: -2rem;
-    right: -4rem;
+    display: flex;
+    align-items: center;
+    top: -1rem;
+    right: -1rem;
     z-index: 1;
     opacity: 0.9;
     transform: rotate(7deg);
 }
 
+.resume .arrow-block-text {
+    padding-block-end: var(--spacing2);
+}
+
 .resume .arrow {
-    width: 4rem;
-    transform: rotate(100deg);
+    width: 3.5rem;
+    transform: rotate(110deg);
 }
