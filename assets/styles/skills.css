@@ -47,7 +47,7 @@ main .title h2 {
     --font-size: 3;
 }
 
-.phrase:hover .knife-icon  {
+.phrase:hover .knife-icon {
     opacity: 0.8;
     transition-delay: 0.2s;
     transform: rotate(-53deg) translateY(-2rem);
@@ -66,10 +66,10 @@ main .title h2 {
     --article-size: 415px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(var(--article-size), 100%), 1fr));
-    grid-template-rows: 1fr 1fr 1fr; 
-    gap: var(--spacing4); 
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: var(--spacing4);
     align-items: stretch;
-} 
+}
 
 
 article {
@@ -80,7 +80,7 @@ article {
     min-height: 100%;
 }
 
- 
+
 article h2 {
     --font-size: 1.8;
     margin-block-end: var(--spacing);
@@ -114,6 +114,7 @@ article h2 {
     margin-block-start: calc(var(--spacing) * -1);
     width: fit-content;
 }
+
 .arrow-block-text .arrow {
     width: 3rem;
     transform: rotate(-90deg);
@@ -121,15 +122,48 @@ article h2 {
 
 article:hover {
     border-color: var(--dark);
-} 
+}
 
-article:hover .article-content > .icon {
+article:hover .article-content>.icon {
     transform: scale(1.1);
-} 
+    transition: 0.2s
+}
 
-article:hover + .arrow-block {
+article:hover+.arrow-block {
     opacity: 0.9;
     transition-delay: 0.2s;
-} 
+}
 
- 
+
+.resume {
+    height: min-content;
+    align-self: center;
+    position: relative
+}
+
+.resume article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    padding-block: var(--spacing2);
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.resume .arrow-block {
+    position: absolute;
+    top: -2rem;
+    right: -4rem;
+    z-index: 1;
+    opacity: 0.9;
+    transform: rotate(7deg);
+}
+
+.resume .arrow {
+    width: 4rem;
+    transform: rotate(100deg);
+}

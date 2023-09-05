@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SkillController!
+{% block title %}SB | Compétences
 {% endblock %}
 
 {% block stylesheets %}
@@ -27,8 +27,6 @@
 			</p>
 
 			<div class="skills">
-
-
 				{% for skillCategory in skillCategories %}
 					<div class="article-wrapper">
 						<article>
@@ -49,7 +47,16 @@
 						</div>
 					</div>
 				{% endfor %}
-
+				<div class="article-wrapper resume">
+					<div class="arrow-block">
+						<img class="arrow" src="{{ asset('images/arrows/double-loop.png')}}" alt="">
+						<span class="arrow-block-text">Juste en 3 mots</span>
+					</div>
+					<article class="">
+						<div class="article-content">Patience - Autonomie - Rigueur</div>
+						<a href="#CV" class="btn">Télécharger mon CV</a>
+					</article>
+				</div>
 			</div>
 		</section>
 	</main>

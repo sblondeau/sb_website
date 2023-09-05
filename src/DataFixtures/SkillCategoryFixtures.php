@@ -10,8 +10,8 @@ class SkillCategoryFixtures extends Fixture
 {
     public const SKILL_CATEGORIES = [
         'backend' => ['Développeur Backend', 'Parce qu\'un code bien écrit, ça peut-être beau aussi !'],
-        'frontend' => ['Frontend', 'J\'aime passionnement le CSS et j\'en suis fier'],
-        'uxui' => ['UX/UI', 'Un code propre c\'est mieux avec un joli visuel'],
+        'frontend' => ['Frontend', 'J\'aime passionnement le CSS et je n\'ai pas peur de le dire'],
+        'uxui' => ['UX/UI', 'Ergonomie, accessibilité, ça n\'empêche pas de faire joli'],
     ];
 
     public function load(ObjectManager $manager): void
