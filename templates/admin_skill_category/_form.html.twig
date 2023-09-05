@@ -1,0 +1,4 @@
+{{ form_start(form, {'action': path('app_admin_skill_category_edit', {id: skill_category.id})}) }}
+    {{ form_widget(form) }}
+    <button  data-turbo-frame="_top" class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

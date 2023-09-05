@@ -1,0 +1,55 @@
+body {
+    animation: none;
+}
+
+
+svg {
+    fill: var(--primary);
+}
+
+svg:hover {
+    transform: scale(1.2);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: transparent;
+}
+.btn-outline:active {
+    background-color: transparent;
+}
+
+article h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+article h2 > div {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+ 
+}
+
+.article-wrapper .arrow-block {
+    opacity: 1;
+    transform: none;
+}
+
+.article-wrapper .arrow-block-text {
+    margin-block-start: var(--spacing-xs);
+}
+
+.article-edit {
+    display: flex;
+    align-items: stretch;
+}
+
+.article-edit button {
+    align-self: flex-end;
+}

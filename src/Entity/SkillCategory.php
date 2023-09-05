@@ -6,6 +6,7 @@ use App\Repository\SkillCategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SkillCategoryRepository::class)]
 class SkillCategory
@@ -15,15 +16,21 @@ class SkillCategory
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255)]
     private ?string $icon = null;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Skill::class)]
     private Collection $skills;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 

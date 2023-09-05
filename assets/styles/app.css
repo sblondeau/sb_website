@@ -161,6 +161,21 @@ a:hover {
     filter: brightness(120%) grayscale(100) hue-rotate(50deg);
 }
 
+
+:where(form, form>div) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    width: 100%;
+}
+
+:where(input, select, textarea) {
+    width: 100%;
+    border: 1px solid var(--neutral);
+    border-radius: 4px;
+    padding: var(--spacing-xs);
+}
+
 /* @media (prefers-color-scheme: dark) {
     body {
         background-color: var(--dark);
@@ -230,3 +245,4 @@ footer {
 :is(nav, footer) a:hover .icon {
     transform: scale(1.1);
 }
+
