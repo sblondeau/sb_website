@@ -1,0 +1,99 @@
+section h2 {
+    --font-size: 2;
+}
+
+main {
+    padding: var(--spacing);
+    line-height: 150%;
+}
+.subtitle, .subtitle > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing);
+}
+
+.project {
+    --font-size: 1.4;
+    display: grid;
+    grid-template-areas: "title title year"
+                         "image content content"
+                         "thumbnails content content"                    
+    ;
+    gap: var(--spacing);
+    align-items: center;
+    margin-block: var(--spacing4);
+    padding-block: var(--spacing2);
+    border-block-start: 2px dashed var(--neutral);
+}
+
+.project .image {
+    grid-area: 'image';
+    padding-inline: var(--spacing3);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(75px, calc(50% - var(--spacing))), 1fr));
+    gap: var(--spacing-xs); 
+}
+
+.project .image img {
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+.project .image img:first-child {
+    grid-column: 1 / -1;
+    opacity: 0.1;
+}
+ 
+img.placeholder {
+    opacity: 0.2;
+}
+
+.project h2 {
+    width: fit-content;
+}
+
+.project .subtitle {
+    display: flex;
+    align-items: center;
+    grid-area: title;
+    justify-content: flex-start;
+}
+
+.year {
+    grid-area: year;
+    font-weight: bold;
+}
+
+.content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    font-weight: 100;
+}
+
+.referral {
+    display: flex;
+    gap: var(--spacing);
+    background-color: var(--primary-light);
+    padding: var(--spacing);
+    transform: rotate(var(--rotate, 0));
+    transition: 0.2s;
+}
+
+.referral img {
+    width: 4rem;
+    align-self: flex-start;
+}
+
+.project:hover .referral {
+    --rotate: -1deg;
+}
+
+.badges {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-block-start: var(--spacing2);
+}

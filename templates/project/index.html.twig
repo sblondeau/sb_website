@@ -18,17 +18,54 @@
 			<h2>Donnez vie à vos projets</h2>
 		</div>
 		{% for project in projects %}
-			<section>
-				<h2>{{ project.title }}</h2>
-				<div>{{ project.url }}
-					{{project.year}}</div>
-				<p>{{ project.description }}</p>
-				<blockquote>
-					<cite>{{ project.customer }}</cite>
-					{{ project.referral }}
-				</blockquote>
+			<section class="project">
+				<div class="subtitle">
+					<h2>
+						<img class="icon" src="{{ asset('images/right-arrow.png' )}}" alt="">
+						{{ project.title }}
+					</h2>
+					{% if project.url %}
+						<a class="link" href="{{ project.url}}">Visiter</a>
+					{% endif %}
+				</div>
+
+				<span class="year">
+					{{project.year}}
+				</span>
+				<div class="image">
+					{% for image in project.images ?? null %}
+						<img src="{{ project.image }}" alt="Capture d\'écran du projet {{ project.title }}">
+					{% else %}
+						<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
+					{% endfor %}
+				</div>
+				<div class="content">
+					<div>
+						<div class="badges">
+							<span class="badge">Symfony</span>
+							<span class="badge">PHP</span>
+						</div>
+						<p>{{ project.description }}</p>
+					</div>
+					<article class="referral">
+						<img src="{{ asset('images/good-feedback.png') }}" alt="">
+						<div class="referral-content">
+							<h3>{{ project.customer }}</h3>
+							<p>{{ project.referral }}</p>
+						</div>
+					</article>
+				</div>
 			</section>
 		{% endfor %}
 	</main>
-
+	<footer>
+		<a href="{{ path('app_skill') }}">
+			<img class="icon" src="{{ asset('images/skills.png') }}" alt="">
+			Voir mes compétences
+		</a>
+		<a href="{{ path('app_project') }}">
+			<img class="icon" src="{{ asset('images/portfolio.png') }}" alt="">
+			Voir mon offre
+		</a>
+	</footer>
 {% endblock %}

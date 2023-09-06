@@ -95,6 +95,10 @@ li {
     width: clamp(360px, 75vw, var(--container));
 }
 
+:where(section) {
+    width: 100%;
+}
+
 :where(h1, h2, h3, h4) {
     font-family: var(--font-title);
     color: var(--primary);
@@ -170,6 +174,21 @@ a:hover {
     background-color: transparent;
 }
 
+.badge {
+    --font-size:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding-block: calc(var(--spacing-xs) / 2);
+    padding-inline: var(--spacing-xs);
+    border-radius: 2rem;
+    width: fit-content;
+    transition: 0.3s;
+}
 
 .icon {
     width: clamp(calc(var(--font-size) * 0.8rem), calc(var(--font-size) * 1.25vw), calc(var(--font-size) * 1rem));
@@ -198,6 +217,24 @@ a:hover {
     --font-size: 1.1;
     font-weight: lighter;
     color: var(--dark);
+}
+
+main h1 {
+    --font-size: 3;
+}
+
+main .title {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: var(--spacing3);
+    margin-block-end: var(--spacing2);
+}
+
+main .title h2 {
+    --font-size: 2;
+    color: var(--dark);
+    font-weight: 100;
 }
 
 /* @media (prefers-color-scheme: dark) {
