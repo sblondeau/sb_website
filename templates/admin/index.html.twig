@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Admin
+{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" data-turbo-track="reload" href="{{ asset('styles/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+	<header>
+		{% include 'components/_navbar.html.twig' %}
+	</header>
+	<main>
+		<section>
+			<h1>Administration</h1>
+			<div class="links">
+				<article>
+					<a class="btn" href="{{ path('app_admin_skill_category_index')}}">Compétences</a>
+				</article>
+				<article>
+					<a class="btn" href="">Réalisations</a>
+				</article>
+			</div>
+		</section>
+
+	{% endblock %}
