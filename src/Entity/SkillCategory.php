@@ -26,7 +26,7 @@ class SkillCategory
     #[ORM\Column(length: 255)]
     private ?string $icon = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Skill::class, cascade: ['remove'])]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Skill::class, cascade: ['remove', 'persist'])]
     private Collection $skills;
 
     #[Assert\NotBlank]

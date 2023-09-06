@@ -50,3 +50,18 @@ article h2 > div {
 .order .btn {
     padding-inline: var(--spacing-xs);
 }
+
+.live-input  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.live-input > div  {
+    width: 100%;
+}
+
+.live-input button  {
+    margin-block-end: var(--spacing-xs);
+}

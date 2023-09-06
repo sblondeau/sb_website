@@ -1,0 +1,27 @@
+<div{{attributes}}>
+	{{ form_start(form, {'action': path('app_admin_skill_category_edit', {id: this.skillCategory.id})}) }}
+	{{ form_start(form) }}
+
+	{{ form_row(form.name) }}
+	{{ form_row(form.icon) }}
+	{{ form_row(form.description) }}
+	{{ form_label(form.skills) }}
+
+	<h3>Compétences :</h3>
+	{% for key, skillForm in form.skills %}
+		{# render a delete button for every row #}
+		<div class="live-input">
+			{{ form_row(skillForm.name, {'label': false}) }}
+			{{ form_widget(skillForm.vars.button_delete, { label_html:true, label: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+</svg>', attr: { class: 'btn btn-outline' } }) }}
+		</div>
+		{# render rest of the comment form #}
+	{% endfor %}
+
+	{# render the add button #}
+	{{ form_widget(form.skills.vars.button_add, { label: '+ Compétence', attr: {class: 'btn btn-outline'} }) }}
+
+	<button data-turbo-frame="_top" type="submit" class="btn">Modifier</button>
+	{{ form_end(form) }}
+</div>

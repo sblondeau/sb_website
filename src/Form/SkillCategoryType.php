@@ -4,9 +4,10 @@ namespace App\Form;
 
 use App\Entity\SkillCategory;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 
 class SkillCategoryType extends AbstractType
 {
@@ -34,7 +35,11 @@ class SkillCategoryType extends AbstractType
                         'placeholder' => 'Catchprase qui va bien',
                     ],
                 ]
-            );
+            )
+            ->add('skills', LiveCollectionType::class, [
+                'entry_type' => SkillType::class,
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -13,7 +13,7 @@
 
 	<turbo-frame id="category_{{ skill_category.id }}">
         <article class="article-edit">
-		{{ include('admin_skill_category/_form.html.twig', {'button_label': 'Modifier'}) }}
+		{{ component('SkillCollectionType', { skillCategory: skill_category }) }}
         </article>
 	</turbo-frame>
 
