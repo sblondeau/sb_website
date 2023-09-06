@@ -27,7 +27,11 @@
     font-size: clamp(calc(var(--font-size) * 0.8rem), calc(var(--font-size) * 1.25vw), calc(var(--font-size) * 1rem));
 }
 
-body {
+:where(body) {
+    --container: 1480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
     background-image: url(../images/paper_background.png);
@@ -35,6 +39,13 @@ body {
     position: relative;
     animation: slide ease-in-out 0.5s;
     box-shadow: -1rem 0 3rem -1rem var(--neutral);
+    min-height: 100vh;
+    font-family: var(--font-text); 
+    --font-size: 1.4;
+    color: var(--dark);
+    gap: var(--spacing);
+
+    min-height: 100vh;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -42,7 +53,6 @@ body {
         animation: none;
     }
 }
-
 
 @keyframes slide {
     from {
@@ -81,24 +91,8 @@ li {
 /********* THEME *********/
 
 
-body {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(720px, 100%), 1fr));
-    font-family: var(--font-text);
-    --font-size: 1.4;
-
-    color: var(--dark);
-    place-items: center;
-    gap: var(--spacing);
-
-    min-height: 100vh;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+:where(main, header, footer) {
+    width: clamp(360px, 75vw, var(--container));
 }
 
 :where(h1, h2, h3, h4) {
@@ -200,7 +194,7 @@ a:hover {
     padding: var(--spacing-xs);
 }
 
-:where(.help-text){
+:where(.help-text) {
     --font-size: 1.1;
     font-weight: lighter;
     color: var(--dark);
@@ -231,7 +225,6 @@ nav {
     padding-block-end: 0;
     margin: auto;
     border-block-end: 2px dashed var(--primary-light);
-
 }
 
 nav .icon {
@@ -275,4 +268,3 @@ footer {
 :is(nav, footer) a:hover .icon {
     transform: scale(1.1);
 }
-

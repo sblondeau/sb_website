@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Freelance | Réalisations
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" data-turbo-track="reload" href="{{ asset('styles/projects.css') }}">
+{% endblock %}
+
+{% block body %}
+	<header>
+		{% include 'components/_navbar.html.twig' %}
+	</header>
+	<main>
+		<div class="title">
+			<h1>Mes réalisations</h1>
+			<h2>Donnez vie à vos projets</h2>
+		</div>
+		{% for project in projects %}
+			<section>
+				<h2>{{ project.title }}</h2>
+				<div>{{ project.url }}
+					{{project.year}}</div>
+				<p>{{ project.description }}</p>
+				<blockquote>
+					<cite>{{ project.customer }}</cite>
+					{{ project.referral }}
+				</blockquote>
+			</section>
+		{% endfor %}
+	</main>
+
+{% endblock %}

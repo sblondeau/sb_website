@@ -1,15 +1,3 @@
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    --container: 1480px;
-}
-
-:where(main, header, footer) {
-    width: clamp(360px, 75vw, var(--container));
-}
-
 main {
     padding: var(--spacing2);
     padding-block-start: var(--spacing-xs);
