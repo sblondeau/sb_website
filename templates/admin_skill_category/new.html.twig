@@ -13,9 +13,13 @@
 		<article class="article-edit">
 			<h2>Ajouter une catégorie de compétences</h2>
 			{{ form_start(form, {'action': path('app_admin_skill_category_new')}) }}
-			{{ form_widget(form) }}
+			{{ form_row(form.name) }}
+			{{ form_row(form.icon) }}
+			{{ form_row(form.description) }}
+			{{ form_row(form._token) }}
+
 			<button data-turbo-frame="_top" class="btn">{{ button_label|default('Ajouter') }}</button>
-			{{ form_end(form) }}
+			{{ form_end(form, {render_rest: false}) }}
 		</article>
 	</turbo-frame>
 {% endblock %}

@@ -5,7 +5,6 @@
 	{{ form_row(form.name) }}
 	{{ form_row(form.icon) }}
 	{{ form_row(form.description) }}
-	{{ form_label(form.skills) }}
 
 	<h3>Compétences :</h3>
 	{% for key, skillForm in form.skills %}
@@ -23,5 +22,6 @@
 	{{ form_widget(form.skills.vars.button_add, { label: '+ Compétence', attr: {class: 'btn btn-outline'} }) }}
 
 	<button data-turbo-frame="_top" type="submit" class="btn">Modifier</button>
-	{{ form_end(form) }}
+	{{ form_row(form._token) }}
+	{{ form_end(form, {render_rest: false}) }}
 </div>
