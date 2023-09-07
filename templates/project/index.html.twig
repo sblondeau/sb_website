@@ -15,10 +15,19 @@
 	<main>
 		<div class="title">
 			<h1>Mes réalisations</h1>
-			<h2>Donnez vie à vos projets</h2>
+			<h2>Donnez vie à vos projets
+				<div class="alive">
+					<img class="alive-icon" src="{{ asset('images/alive.png' )}}" alt="Zombie hand">
+				</div>
+			</h2>
 		</div>
 		{% for project in projects %}
 			<section class="project">
+				<img class="project-icon hide-sm" src="{{ asset('images/to-do.png' )}}" alt="">
+				<img class="project-icon hide-sm" src="{{ asset('images/design.png' )}}" alt="">
+				<img class="project-icon hide-sm" src="{{ asset('images/web-coding.png' )}}" alt="">
+				<img class="project-icon hide-sm" src="{{ asset('images/deploy.png' )}}" alt="">
+
 				<div class="subtitle">
 					<h2>
 						<img class="icon" src="{{ asset('images/right-arrow.png' )}}" alt="">
@@ -30,12 +39,19 @@
 				</div>
 
 				<span class="year">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewbox="0 0 16 16">
+						<path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+						<path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+					</svg>
 					{{project.year}}
 				</span>
 				<div class="image">
 					{% for image in project.images ?? null %}
 						<img src="{{ project.image }}" alt="Capture d\'écran du projet {{ project.title }}">
 					{% else %}
+						<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
+						<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
+						<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
 						<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
 					{% endfor %}
 				</div>
@@ -47,13 +63,20 @@
 						</div>
 						<p>{{ project.description }}</p>
 					</div>
-					<article class="referral">
-						<img src="{{ asset('images/good-feedback.png') }}" alt="">
-						<div class="referral-content">
-							<h3>{{ project.customer }}</h3>
-							<p>{{ project.referral }}</p>
+
+					<div class="referral-wrapper">
+						<div class="arrow-block">
+							<img class="arrow" src="{{ asset('images/arrows/double-loop.png')}}" alt="">
+							<span class="arrow-block-text">Youpi, un client content</span>
 						</div>
-					</article>
+						<article class="referral">
+							<img src="{{ asset('images/good-feedback.png') }}" alt="">
+							<div class="referral-content">
+								<h3>{{ project.customer }}</h3>
+								<p>{{ project.referral }}</p>
+							</div>
+						</article>
+					</div>
 				</div>
 			</section>
 		{% endfor %}

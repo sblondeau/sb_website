@@ -6,7 +6,9 @@ main {
     padding: var(--spacing);
     line-height: 150%;
 }
-.subtitle, .subtitle > div {
+
+.subtitle,
+.subtitle>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,34 +19,39 @@ main {
     --font-size: 1.4;
     display: grid;
     grid-template-areas: "title title year"
-                         "image content content"
-                         "thumbnails content content"                    
+        "image content content"
+        "thumbnails content content"
     ;
     gap: var(--spacing);
     align-items: center;
-    margin-block: var(--spacing4);
+    margin-block-start: var(--spacing2);
+    margin-block-end: var(--spacing4);
     padding-block: var(--spacing2);
     border-block-start: 2px dashed var(--neutral);
+    position: relative;
 }
 
+
+
 .project .image {
-    grid-area: 'image';
+    grid-area: image;
     padding-inline: var(--spacing3);
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(75px, calc(50% - var(--spacing))), 1fr));
-    gap: var(--spacing-xs); 
+    gap: var(--spacing-xs);
 }
 
 .project .image img {
     object-fit: cover;
     aspect-ratio: 1;
 }
+
 .project .image img:first-child {
     grid-column: 1 / -1;
     opacity: 0.1;
 }
- 
+
 img.placeholder {
     opacity: 0.2;
 }
@@ -96,4 +103,140 @@ img.placeholder {
     display: flex;
     gap: var(--spacing-xs);
     margin-block-start: var(--spacing2);
+}
+
+.referral-wrapper {
+    position: relative;
+    margin-top: var(--spacing2);
+}
+
+.referral-wrapper .arrow-block {
+    position: absolute;
+    display: flex;
+    top: -1.5rem;
+    right: -0.5rem;
+    z-index: 1;
+    opacity: 0.9;
+    transform: rotate(15deg);
+}
+
+.referral .arrow-block-text {
+    align-self: flex-start;
+    padding-block-end: var(--spacing2);
+}
+
+.referral-wrapper .arrow {
+    width: 3.5rem;
+    transform: rotate(110deg);
+    margin-block-start: 1rem;
+}
+
+.project-icon {
+    position: absolute;
+    width: 5rem;
+    transform: rotate(var(--rotate, 3deg)) scale(var(--scale, 1));
+    transition: ease-in-out .3s;
+    transition-delay: 0.2s;
+    opacity: 0.1;
+    --distance: -7rem;
+}
+
+.project:hover .project-icon {
+    opacity: 0.6;
+    --rotate: 8deg;
+    --scale: 1.1;
+}
+
+.project-icon:nth-child(1) {
+    top: 20%;
+    left: var(--distance);
+}
+
+.project-icon:nth-child(2) {
+    top: 38%;
+    right: var(--distance);
+}
+
+.project-icon:nth-child(3) {
+    top: 56%;
+    left: var(--distance);
+}
+
+.project-icon:nth-child(4) {
+    top: 74%;
+    right: var(--distance);
+}
+
+.title h2 {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacing2);
+}
+
+.alive {
+    border-block-end: 2px solid var(--dark);
+    width: 4rem;
+    /* margin-block-end: var(--spacing); */
+    opacity: 0.1;
+    overflow: hidden;
+}
+
+.alive-icon {
+    transform: rotate(0) translateY(100%);
+}
+
+.title {
+    flex-wrap: wrap;
+}
+
+.title:hover .alive {
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.title:hover .alive-icon {
+    animation: alive 2s ease-out 0.2s forwards;
+}
+
+@keyframes alive {
+    0% {
+        transform: rotate(0) translateY(100%);
+    }
+
+    5% {
+        transform: rotate(8deg) translateY(95%);
+    }
+
+    10% {
+        transform: rotate(-8deg) translateY(90%);
+    }
+
+    15% {
+        transform: rotate(5deg) translateY(85%);
+    }
+
+    20% {
+        transform: rotate(-5deg) translateY(80%);
+    }
+
+    50% {
+        transform: rotate(2deg) translateY(50%);
+    }
+
+    100% {
+        transform: rotate(0) translateY(20%);
+    }
+}
+
+
+@media screen and (width < 720px) {
+    .project {
+        --font-size: 1.4;
+        display: grid;
+        grid-template-areas: "title title year"
+            "content content content"
+            "image image image"
+            "thumbnails thumbnails thumbnails"
+        ;
+    }
 }
