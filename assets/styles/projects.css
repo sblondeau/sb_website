@@ -50,6 +50,7 @@ main {
 .project .image img:first-child {
     grid-column: 1 / -1;
     opacity: 0.1;
+    max-width: min-content;
 }
 
 img.placeholder {
@@ -79,6 +80,13 @@ img.placeholder {
     justify-content: space-between;
     height: 100%;
     font-weight: 100;
+    min-width: 100%;
+}
+
+.badges {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-block-start: var(--spacing2);
 }
 
 .referral {
@@ -93,16 +101,6 @@ img.placeholder {
 .referral img {
     width: 4rem;
     align-self: flex-start;
-}
-
-.project:hover .referral {
-    --rotate: -1deg;
-}
-
-.badges {
-    display: flex;
-    gap: var(--spacing-xs);
-    margin-block-start: var(--spacing2);
 }
 
 .referral-wrapper {
@@ -145,6 +143,10 @@ img.placeholder {
     opacity: 0.6;
     --rotate: 8deg;
     --scale: 1.1;
+}
+
+.project:hover h2 {
+    background-color: var(--primary-light);
 }
 
 .project-icon:nth-child(1) {
@@ -240,3 +242,4 @@ img.placeholder {
         ;
     }
 }
+

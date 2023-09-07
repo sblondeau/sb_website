@@ -99,13 +99,67 @@ article h2 > div {
     flex-wrap: wrap;
 }
 
+.links img {
+    width: 5rem;
+}
+
 .links article  {
     display: flex;
     flex-direction: column;
     gap: var(--spacing);
     padding: var(--spacing2);
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border: 2px dashed var(--neutral);
     background-color: var(--primary-light);
+}
+
+/**** PROJECTS ***/
+
+.projects {
+    margin-block-start: var(--spacing2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
+    gap: var(--spacing2);
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    border: 2px dashed var(--neutral);
+    padding: var(--spacing2);
+}
+
+
+.project h2 {
+    --font-size:2;
+}
+.project .subtitle {
+    display: flex;
+    justify-content: space-between;
+}
+.project .subtitle > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.project .images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: var(--spacing);    
+}
+
+.project:hover {
+    background-color: var(--primary-light);
+}
+
+.project .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-block-end: var(--spacing);
 }

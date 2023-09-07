@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Admin | Réalisations
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('styles/project.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+	<header>
+		{% include 'components/_navbar.html.twig' %}
+	</header>
+	<main>
+		<section>
+			<h2>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewbox="0 0 16 16">
+					<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+				</svg>
+				<a href="{{ path('app_admin') }}">Administration</a>
+			</h2>
+			<h1><img class="icon" src="{{ asset('images/portfolio.png') }}" alt="">Mes réalisations</h1>
+
+			<div class="projects">
+				{% for project in projects %}
+					<section class="project">
+						<turbo-frame id="project_{{ project.id }}">
+
+							<div class="subtitle">
+								<h2>
+									<img class="icon" src="{{ asset('images/right-arrow.png' )}}" alt="">
+									{{ project.title }}
+								</h2>
+								<div>
+									<a class="btn btn-outline" href="{{ path('app_admin_project_edit', {'id': project.id}) }}">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewbox="0 0 16 16">
+											<path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+										</svg>
+									</a>
+									{{ include('admin_project/_delete_form.html.twig') }}
+								</div>
+							</div>
+
+							<div>
+								<a href="{{ project.url }}" target="_blank">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewbox="0 0 16 16">
+										<path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+										<path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+									</svg>
+									{{ project.url}}</a>
+							</div>
+							<div>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewbox="0 0 16 16">
+									<path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+									<path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+								</svg>
+								{{project.date|date('Y')}}
+							</div>
+							<div>
+								<h3>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewbox="0 0 16 16">
+										<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+									</svg>
+									Description
+								</h3>
+								<p>{{ project.description }}</p>
+								<h3>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-heart-fill" viewbox="0 0 16 16">
+										<path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+									</svg>
+									Recommandation
+								</h3>
+								<p>
+									{{ project.referral }}
+									<br>
+									<strong>
+										{{ project.customer }}
+									</strong>
+								</p>
+							</div>
+							<h3>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags-fill" viewbox="0 0 16 16">
+									<path d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+									<path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"/>
+								</svg>
+								Tags
+							</h3>
+							{% if project.tags %}
+								<div class="badges">
+									{% for tag in project.tagList %}
+										<span class="badge">{{ tag }}</span>
+									{% endfor %}
+								</div>
+							{% endif %}
+							<div class="images">
+								{% for image in project.images ?? null %}
+									<img src="{{ project.image }}" alt="Capture d\'écran du projet {{ project.title }}">
+								{% else %}
+									<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
+								{% endfor %}
+							</div>
+						</turbo-frame>
+					</section>
+				{% endfor %}
+				<section class="project new">
+					<turbo-frame id="project_new">
+						<h2>
+							<img class="icon" src="{{ asset('images/right-arrow.png' )}}" alt="">
+							Nouvelle réalisation
+						</h2>
+
+						<a class="btn" href="{{ path('app_admin_project_new') }}">Ajouter</a>
+					</turbo-frame>
+				</section>
+			</div>
+
+		</main>
+	{% endblock %}

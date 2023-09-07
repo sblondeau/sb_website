@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
 class Project
@@ -14,23 +16,34 @@ class Project
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column]
-    private ?int $year = null;
-
+    #[Assert\NotBlank]
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $referral = null;
 
+    #[Assert\Url]
+    #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $url = null;
 
+    #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $customer = null;
+
+    #[Assert\NotBlank]
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?DateTimeInterface $date = null;
+
+    #[Assert\Length(max: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $tags = null;
 
     public function getId(): ?int
     {
@@ -45,18 +58,6 @@ class Project
     public function setTitle(string $title): static
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getYear(): ?int
-    {
-        return $this->year;
-    }
-
-    public function setYear(int $year): static
-    {
-        $this->year = $year;
 
         return $this;
     }
@@ -105,6 +106,34 @@ class Project
     public function setCustomer(?string $customer): static
     {
         $this->customer = $customer;
+
+        return $this;
+    }
+
+    public function getDate(): ?DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(DateTimeInterface $date): static
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getTags(): ?string
+    {
+        return $this->tags;
+    }
+    public function getTagList(): ?array
+    {
+        $tags = explode(',', $this->tags);
+        return array_map('trim', $tags);
+    }
+    public function setTags(?string $tags): static
+    {
+        $this->tags = $tags;
 
         return $this;
     }

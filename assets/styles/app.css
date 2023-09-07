@@ -216,6 +216,11 @@ a:hover {
     padding: var(--spacing-xs);
 }
 
+:where(textarea) {
+    --font-size: 1.2;
+    height: 10rem;
+}
+
 :where(.help-text) {
     --font-size: 1.1;
     font-weight: lighter;

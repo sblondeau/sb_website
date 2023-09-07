@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\SkillRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SkillRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SkillRepository::class)]
 class Skill
@@ -13,6 +14,8 @@ class Skill
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<turbo-frame id="project_{{ project.id }}">
+
+		{{ form_start(form, {action: path('app_admin_project_edit', {'id': project.id}) }) }}
+		{{ form_widget(form) }}
+		<button class="btn">Modifier</button>
+		{{ form_end(form) }}
+
+	</turbo-frame>
+
+{% endblock %}
