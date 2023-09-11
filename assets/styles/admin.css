@@ -150,9 +150,15 @@ article h2 > div {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    gap: var(--spacing);    
+    gap: var(--spacing);
+    padding-block-start: var(--spacing);    
+
 }
 
+.project .edit-images {
+    margin-block-start: var(--spacing2);    
+    border-block-start: 2px dotted var(--neutral);
+}
 .project:hover {
     background-color: var(--primary-light);
 }
@@ -162,4 +168,23 @@ article h2 > div {
     flex-wrap: wrap;
     gap: var(--spacing-xs);
     margin-block-end: var(--spacing);
+}
+
+.project-image {
+    --font-size: 1.2;
+    border: 2px dashed transparent;
+    padding: var(--spacing-xs);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.project-image:hover {
+    border-color: var(--dark);
+}
+
+.project .upload {
+    display: flex;
+    gap: var(--spacing-xs);
 }

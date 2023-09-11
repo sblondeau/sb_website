@@ -45,15 +45,24 @@ main {
 .project .image img {
     object-fit: cover;
     aspect-ratio: 1;
+    cursor: pointer;
+    border: 2px dotted var(--dark);
 }
 
 .project .image img:first-child {
     grid-column: 1 / -1;
-    opacity: 0.1;
-    max-width: min-content;
+    opacity: 0.8;
+    border-color: transparent;
 }
 
-img.placeholder {
+.project .image img:first-child:hover {
+    grid-column: 1 / -1;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.project .image .actual-image {
+    filter: brightness(110%);
     opacity: 0.2;
 }
 
@@ -103,6 +112,10 @@ img.placeholder {
     align-self: flex-start;
 }
 
+.project:hover .referral-wrapper .arrow-block {
+    opacity: 0.9;
+}
+
 .referral-wrapper {
     position: relative;
     margin-top: var(--spacing2);
@@ -114,8 +127,10 @@ img.placeholder {
     top: -1.5rem;
     right: -0.5rem;
     z-index: 1;
-    opacity: 0.9;
+    opacity: 0.2;
     transform: rotate(15deg);
+    transition: 0.2s;
+    transition-delay: 0.2s;
 }
 
 .referral .arrow-block-text {
@@ -242,4 +257,3 @@ img.placeholder {
         ;
     }
 }
-

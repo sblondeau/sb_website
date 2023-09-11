@@ -1,0 +1,11 @@
+<div class="image" {{ attributes }}>
+	{% for image in project.getProjectImages ?? null %}
+		{% if loop.first %}
+			<img src="/uploads/{{ this.actualImage.name ?? image.name }}" alt="Capture d\'écran du projet {{ project.title }}">
+		{% endif %}
+
+		<a href="" class="{{ this.actualImage == image or (this.actualImage == null and loop.first) ? 'actual-image'}}"  data-action="live#action" data-action-name="prevent|zoom(projectImage={{ image.id }})"><img src="/uploads/{{ image.name }}" alt="Capture d\'écran du projet {{ project.title }}"></a>
+	{% else %}
+		<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
+	{% endfor %}
+</div>

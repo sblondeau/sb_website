@@ -94,13 +94,9 @@
 									{% endfor %}
 								</div>
 							{% endif %}
-							<div class="images">
-								{% for image in project.images ?? null %}
-									<img src="{{ project.image }}" alt="Capture d\'écran du projet {{ project.title }}">
-								{% else %}
-									<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
-								{% endfor %}
-							</div>
+								{{ component('ProjectUploadComponent', {project: project})}}
+							
+
 						</turbo-frame>
 					</section>
 				{% endfor %}

@@ -51,13 +51,8 @@
 					</svg>
 					{{project.date|date('Y')}}
 				</span>
-				<div class="image">
-					{% for image in project.images ?? null %}
-						<img src="{{ project.image }}" alt="Capture d\'écran du projet {{ project.title }}">
-					{% else %}
-						<img src="{{ asset('images/project-placeholder.png') }}" class="placeholder" alt="">
-					{% endfor %}
-				</div>
+
+				{{ component('ProjectImageComponent', {project: project })}}
 				<div class="content">
 					<div>
 						{% if project.tags %}
