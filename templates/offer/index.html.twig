@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Freelance | Offre
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" data-turbo-track="reload" href="{{ asset('styles/offer.css') }}">
+{% endblock %}
+
+{% block body %}
+	<header>
+		{% include 'components/_navbar.html.twig' %}
+	</header>
+	<main>
+		<div class="title">
+			<h1>Mon offre</h1>
+			<h2>Un site web propre, ergonomique et utilisable par le plus grand nombre</h2>
+		</div>
+
+		<section>
+			<h2 class="phrase">
+				<img class="icon" src="{{ asset('images/right-arrow.png' )}}" alt="">
+				Comment va t-on y arriver ?
+			</h2>
+			<div class="articles">
+
+				<article>
+
+					<h3>
+						Beaucoup d'écoute
+					</h3>
+					<p>
+						Prendre le temps d'échanger, je dois comprendre votre métier, vos besoins pour développer un site qui vous sera utile
+					</p>
+
+				</article>
+				<article>
+
+					<h3>
+						De la veille technique pour reste en forme
+					</h3>
+					<p>
+						J'aime ce que je fais, je cherche continuellement à m'améliorer. C'est ainsi que je pourrai coder des sites modernes, performants et qui vous dureront longtemps
+					</p>
+				</article>
+				<article>
+					<div class="arrow-block">
+						<img class="arrow" src="{{ asset('images/arrows/double-loop.png')}}" alt="">
+						<span class="arrow-block-text">Mise à profit de + de 15 ans d'XP en développement web</span>
+					</div>
+					<p>
+						J'ai eu le temps de beaucoup me tromper. On apprend des ses erreurs. Cela me rend plus efficace aujourd'hui.
+					</p>
+				</article>
+			</div>
+		</section>
+
+
+		<section>
+			<h2 class="phrase">
+				<img class="icon" src="{{ asset('images/right-arrow.png' )}}" alt="">
+				Comment je fonctionne ?
+			</h2>
+			<div class="articles">
+				<article>
+					<h3>Je code en PHP / Symfony</h3>
+					<p>
+						Un nouveau projet ? Je vous accompagne de A à Z
+						<br>
+						Un projet Symfony existant ? Audit et proposition d'amélioration, développement de nouvelles fonctionnalités, montée en compétence de votre équipe
+					</p>
+
+				</article>
+				<article>
+					<h3>Je travaille 100% en télétravail</h3>
+					<p>Avec beaucoup de dialogue, de la confiance et des rapports d'activité fréquents</p>
+				</article>
+
+				<article>
+					<div class="arrow-block">
+						<img class="arrow" src="{{ asset('images/arrows/double-loop.png')}}" alt="">
+						<span class="arrow-block-text">Je privilégie la méthodologie Agile Scrum, la qualité logicielle, l'accessibilité web et l'UX</span>
+					</div>
+					<p>Pour travailler mieux et plus efficacement, mais je sais m'adapter à vos contraintes</p>
+				</article>
+			</div>
+
+		</section>
+
+		<section class="contact">
+			<h2 class="phrase">
+				Un premier échange rapide en visio, sans pression ?
+			</h2>
+			<h3>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewbox="0 0 16 16">
+					<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+				</svg>
+				20 minutes pour qualifier votre projet et répondre à vos questions
+			</h3>
+			<div>
+
+
+				<img class="check-icon" src="{{ asset('images/list.png') }}" alt=""><a class="btn" href="#">Contact</a>
+				<div class="arrow-block">
+					<img class="arrow" src="{{ asset('images/arrows/double-loop.png')}}" alt="">
+					<span class="arrow-block-text">
+						et valider si nous pouvons aller plus loin ensemble 			
+
+					</span>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<a href="{{ path('app_home')}}">
+			<img class="icon" src="{{ asset('images/portfolio.png') }}" alt="">
+			Voir mes réalisations
+		</a>
+		<a href="#">
+			<img class="icon" src="{{ asset('images/contact.png') }}" alt="">
+			Me contacter
+		</a>
+	</footer>
+{% endblock %}
