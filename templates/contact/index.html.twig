@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Freelance | Contact
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" data-turbo-track="reload" href="{{ asset('styles/offer.css') }}">
+{% endblock %}
+
+{% block body %}
+	<header>
+		{% include 'components/_navbar.html.twig' %}
+	</header>
+	<main>
+		<div class="title">
+			<h1>Me contacter</h1>
+			<h2>Un projet ? une précision ? il suffit de demander</h2>
+		</div>
+
+	</main>
+	<footer>
+		<a class=""  href="{{ path('app_offer') }}">
+			<img class="icon" src="{{ asset('images/offer.png') }}" alt="">
+			Mon offre
+		</a>
+		<a class="" href="{{ path('app_home')}}">
+			<img class="icon" src="{{ asset('images/home.png') }}" alt="">
+			Retour à l'accueil
+		</a>
+	</footer>
+{% endblock %}

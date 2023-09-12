@@ -99,25 +99,23 @@
 				20 minutes pour qualifier votre projet et répondre à vos questions
 			</h3>
 			<div>
-
-
-				<img class="check-icon" src="{{ asset('images/list.png') }}" alt=""><a class="btn" href="#">Contact</a>
+				<img class="check-icon" src="{{ asset('images/list.png') }}" alt="">
+				<a class="btn" href="{{ path('app_contact')}}">Contact</a>
 				<div class="arrow-block">
 					<img class="arrow" src="{{ asset('images/arrows/double-loop.png')}}" alt="">
 					<span class="arrow-block-text">
-						et valider si nous pouvons aller plus loin ensemble 			
-
+						et valider si nous pouvons aller plus loin ensemble
 					</span>
 				</div>
 			</div>
 		</section>
 	</main>
 	<footer>
-		<a href="{{ path('app_home')}}">
+		<a class="" href="{{ path('app_project')}}">
 			<img class="icon" src="{{ asset('images/portfolio.png') }}" alt="">
-			Voir mes réalisations
+			Mes réalisations
 		</a>
-		<a href="#">
+		<a class="btn btn-outline" href="{{ path('app_contact')}}">
 			<img class="icon" src="{{ asset('images/contact.png') }}" alt="">
 			Me contacter
 		</a>

@@ -184,11 +184,7 @@ main {
     right: var(--distance);
 }
 
-.title h2 {
-    display: flex;
-    align-items: flex-end;
-    gap: var(--spacing2);
-}
+
 
 .alive {
     border-block-end: 2px solid var(--dark);
@@ -202,9 +198,6 @@ main {
     transform: rotate(0) translateY(100%);
 }
 
-.title {
-    flex-wrap: wrap;
-}
 
 .title:hover .alive {
     opacity: 0.8;

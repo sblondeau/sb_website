@@ -1,6 +1,8 @@
 main {
     overflow: hidden;
+    padding: var(--spacing);
 }
+
 .phrase {
     --font-size: 2;
     display: flex;
