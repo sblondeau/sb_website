@@ -1,0 +1,61 @@
+main {
+    overflow: hidden;
+    padding: var(--spacing);
+}
+
+
+
+input,
+textarea {
+    background-color: var(--primary-light2);
+    border: none;
+}
+
+
+input:focus {
+    background-color: var(--primary-light);
+}
+
+form {
+    position: relative;
+    width: clamp(min(360px, 100%), 40vw, 100%);
+}
+
+form div {
+    width: 100%;
+}
+
+form:hover .arrow-block {
+    opacity: 1;
+    --rotate: 10deg;
+}
+
+textarea {
+    height: 13rem;
+}
+
+
+:where(.arrow-block) {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    left: 100%;
+    top: 45%;
+    z-index: 1;
+    opacity: 0.8;
+    transform: rotate(var(--rotate, 13deg));
+    transition: 0.2s;
+    transition-delay: 0.2s;
+    max-width: 60%;
+}
+
+.arrow-block-text {
+    align-self: flex-start;
+    width: fit-content;
+    font-family: var(--font-arrow);
+}
+
+.arrow {
+    width: 5rem;
+    transform: rotate(-55deg) scaleX(-1);
+}

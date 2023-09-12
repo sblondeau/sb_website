@@ -18,6 +18,16 @@
 		{% endblock %}
 	</head>
 	<body>
+		{% block header %}
+			<header>
+				{% include 'components/_navbar.html.twig' %}
+			</header>
+		{% endblock %}
+		{% block flashes %}
+			{% include 'components/_flashes.html.twig' %}
+
+		{% endblock %}
+
 		{% block body %}{% endblock %}
 	</body>
 </html>

@@ -13,6 +13,9 @@
     --font-arrow: 'Kranky', cursive;
     --primary: #055EB0;
     --primary-light: #d9e2e9;
+    --primary-light2: #d9e2e955;
+
+    --error: rgb(168, 13, 13);
 
     --neutral: #a3b0bd;
     --dark: #030d18;
@@ -209,6 +212,11 @@ a:hover {
     width: 100%;
 }
 
+:where(form label + ul) {
+    --font-size: 1.2;
+    color: var(--error);
+}
+
 :where(input, select, textarea) {
     width: 100%;
     border: 1px solid var(--neutral);
@@ -298,6 +306,16 @@ nav .me:hover {
     --rotate: 8deg;
     --scale: 1;
 }
+
+/*** flahses ***/
+.flash {
+    background-color: var(--primary-light);
+    border: 2px dashed var(--primary);
+    color: var(--primary);
+    padding: var(--spacing);
+    border-radius: var(--spacing);
+}
+
 
 /**** footer ****/
 footer {
