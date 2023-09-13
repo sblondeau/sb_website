@@ -2,6 +2,7 @@ main {
     padding: var(--spacing2);
     padding-block-start: var(--spacing-xs);
     margin: auto;
+    margin-block-start: 0;
 }
 
 .phrase {

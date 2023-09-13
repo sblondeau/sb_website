@@ -307,6 +307,15 @@ nav .me:hover {
     --scale: 1;
 }
 
+.social {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.social svg {
+    fill: var(--primary);
+}
+
 /*** flahses ***/
 .flash {
     background-color: var(--primary-light);
