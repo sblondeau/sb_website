@@ -1,3 +1,7 @@
+main {
+    padding: var(--spacing);    
+}
+
 section {
     margin-block-end: var(--spacing2);
 }

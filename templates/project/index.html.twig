@@ -31,7 +31,7 @@
 						{{ project.title }}
 					</h2>
 					{% if project.url %}
-						<a class="link" href="{{ project.url}}" target="_blank">
+						<a class="link" href="{{ project.url }}" target="_blank">
 							Visiter
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewbox="0 0 16 16">
 								<path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
@@ -49,7 +49,7 @@
 					{{project.date|date('Y')}}
 				</span>
 
-				{{ component('ProjectImageComponent', {project: project })}}
+				{{ component('ProjectImageComponent', { project: project })}}
 				<div class="content">
 					<div>
 						{% if project.tags %}
@@ -59,7 +59,7 @@
 								{% endfor %}
 							</div>
 						{% endif %}
-						<p>{{ project.description }}</p>
+						<p>{{ project.description|nl2br }}</p>
 					</div>
 
 					{% if project.referral %}
@@ -72,7 +72,7 @@
 								<img src="{{ asset('images/good-feedback.png') }}" alt="">
 								<div class="referral-content">
 									<h3>{{ project.customer }}</h3>
-									<p>{{ project.referral }}</p>
+									<p>{{ project.referral|nl2br }}</p>
 								</div>
 							</article>
 						</div>
