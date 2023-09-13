@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Freelance | Réalisations
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" data-turbo-track="reload" href="{{ asset('styles/legal.css') }}">
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="title">
+			<h1>Mentions légales</h1>
+		</div>
+		<section>
+			<h2>Sylvain BLONDEAU EI</h2>
+			<ul>
+				<li><span>Adresse</span> 24, rue du bois girault, 45100 ORLÉANS, France</li>
+				<li><span>Email</span> contact@sylvainblondeau.dev</li>
+				<li><span>SIREN</span> 979316395</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Hébergement</h2>
+			<ul>
+				<li>HOSTINGER operations, UAB</li>
+				<li><span>Adresse</span> Rue Švitrigailos 34, 03230 Vilnius, Lituanie</li>
+				<li><span>Téléphone</span> +37064503378</li>
+				<li><span>Email</span> domains@hostinger.com</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Provenance des images</h2>
+			<a href="https://www.flaticon.com/">Flaticon</a>
+		</section>
+	</main>
+{% endblock %}

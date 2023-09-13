@@ -353,3 +353,10 @@ footer {
         display: none;
     }
 }
+
+.legal {
+    --font-size: 1.2;
+    position: absolute;
+    bottom: var(--spacing-xs);
+    right: var(--spacing-xs);
+}
