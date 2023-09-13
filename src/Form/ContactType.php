@@ -26,7 +26,7 @@ class ContactType extends AbstractType
                 'attr' => [
                     'placeholder' => 'bilbo@baggins.fr',
                 ],
-                'help' => 'Qui ne sera utilisé par personne d\'autre et aucune autre fin que de vous répondre',
+                'help' => 'Qui ne sera utilisé par personne d\'autre et à aucune autre fin que de vous répondre',
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Votre message',
