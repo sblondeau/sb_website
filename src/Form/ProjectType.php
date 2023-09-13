@@ -19,16 +19,20 @@ class ProjectType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Nom du projet',
             ])
-            ->add('url', UrlType::class)
+            ->add('url', UrlType::class, [
+                'required' => false,
+            ])
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
             ])
             ->add('description')
             ->add('referral', TextareaType::class, [
                 'label' => 'Recommandatiion',
+                'required' => false,
             ])
             ->add('customer', TextType::class, [
                 'label' => 'Client',
+                'required' => false,
             ])
             ->add('tags', TextType::class, [
             ]);
