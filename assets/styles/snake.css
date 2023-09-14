@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing);
+}
+
+.game {
+    --nb-cell: 20;
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+    --size: calc(100vh / var(--nb-cell));
+    display: grid;
+    grid-template-columns: repeat(var(--nb-cell), var(--size));
+    grid-template-rows: repeat(20, var(--size));
+    margin: auto;
+    width: fit-content;
+    border: 2px dashed var(--primary-light);
+    aspect-ratio: 1;
+}
+
+
+.game .snake {
+    width: var(--size);
+    aspect-ratio: 1;
+    background: var(--primary);
+    opacity: 0.2;
+    border-radius: 8px;
+}
+
+.game .head {
+    filter: brightness(110%);
+    background-color: var(--dark);
+    transform: rotate(var(--head-rotate, -90deg)) scaleY(0.5);
+}
+
+.head.T {
+    --head-rotate: -180deg;
+}
+
+.head.L {
+    --head-rotate: 90deg;
+}
+
+.head.R {
+    --head-rotate: -90deg;
+}
+
+.head.B {
+    --head-rotate: 0;
+}
+
+.positionH {
+    transform: scaleY(0.5);
+}
+
+.positionV {
+    transform: scaleX(0.5);
+}
+
+.positionRT {
+    clip-path: polygon(0% 25%, 25% 25%, 25% 0, 75% 0, 75% 75%, 0 75%);
+}
+
+.positionTL {
+    clip-path: polygon(75% 100%, 75% 25%, 0% 25%, 0% 75%, 25% 75%, 25% 100%);
+}
+
+.positionBR {
+    clip-path: polygon(25% 0%, 25% 75%, 100% 75%, 100% 25%, 75% 25%, 75% 0%);
+}
+
+.positionLB {
+    clip-path: polygon(100% 25%, 25% 25%, 25% 100%, 75% 100%, 75% 75%, 100% 75%);
+}
+
+.fruit {
+    display: block;
+    opacity: 0.2;
+}
+
+.btn {
+    opacity: 0.2;
+    border: 1px solid var(--primary);
+    width: fit-content;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.btn-sm {
+    box-shadow: none;
+    padding: 0.3rem;
+    font-size: 1rem;
+}
+
+a:any-link {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.infos {
+    position: fixed;
+    top: var(--spacing);
+    right: var(--spacing);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.score {
+    border: 1px solid var(--primary);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Freelance | Snake
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" data-turbo-track="reload" href="{{ asset('styles/snake.css') }}">
+{% endblock %}
+
+{% block body %}
+<main>
+	<div>{{ error ?? '' }}</div>
+	<div class="map" {{ stimulus_controller('game') }} >
+		{% include 'snake/_map.html.twig' %}
+	</div>
+
+</main>
+{% endblock %}
