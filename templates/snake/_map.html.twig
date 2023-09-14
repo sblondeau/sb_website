@@ -1,14 +1,14 @@
 <div class="infos">
+	<h1>Bonus : Snake</h1>
+	<h2>Score : {{ map.score }}</h2>
 	<div class="">
 		<button class="btn" {{ stimulus_action('game', 'startGame') }}>Start</button>
 		<a class="btn btn-outline" href="{{ path('snake_reset') }}">Reset</a>
 	</div>
-	<div class="score">
-		{{ map.score }}
-	</div>
+
 </div>
 
-<div id="game" data-action="keydown@document->game#move" class="game" data-score="{{ 400 - map.score * 50 }}">
+<div id="game" data-action="keydown@document->game#move" class="game" style="--nb-cell: {{map.size}}" data-score="{{ 400 - map.score * 50 }}">
 	{% for i in 0 .. map.size -1  %}
 		{% for j in 0 .. map.size -1  %}
 			<div>

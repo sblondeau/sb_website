@@ -127,6 +127,20 @@ footer {
     margin-block-start: var(--spacing4);
 }
 
+.icon-snake {
+    opacity: 0.1;
+    --font-size: 5;
+    transition: 0.2s;
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+
+}
+
+.icon-snake:hover {
+    opacity: 0.8;
+    transform: rotate(-5deg) scale(1.1);
+}
 
 @media screen and (width < 720px) {
     .articles {

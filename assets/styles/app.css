@@ -348,15 +348,15 @@ footer {
     transform: scale(1.1);
 }
 
-@media screen and (width < 720px) {
-    .hide-sm {
-        display: none;
-    }
-}
-
 .legal {
     --font-size: 1.2;
     position: absolute;
     bottom: var(--spacing-xs);
     right: var(--spacing-xs);
+}
+
+@media screen and (width < 720px) {
+    .hide-sm {
+        display: none;
+    }
 }

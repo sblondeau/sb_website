@@ -10,7 +10,6 @@
 
 {% block body %}
 <main>
-	<div>{{ error ?? '' }}</div>
 	<div class="map" {{ stimulus_controller('game') }} >
 		{% include 'snake/_map.html.twig' %}
 	</div>

@@ -2,58 +2,44 @@
     box-sizing: border-box;
 }
 
-
-main {
+.map {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing);
+    flex-wrap: wrap;
+    gap: var(--spacing2);
 }
 
 .game {
-    --nb-cell: 20;
-    position: fixed;
+    width: min(calc(100% - var(--spacing2)), 720px);
+    opacity: 0.6;
     z-index: -1;
-    bottom: 0;
-    --size: calc(100vh / var(--nb-cell));
+    --size: 1fr;
     display: grid;
     grid-template-columns: repeat(var(--nb-cell), var(--size));
-    grid-template-rows: repeat(20, var(--size));
+    grid-template-rows: repeat(var(--nb-cell), var(--size));
     margin: auto;
-    width: fit-content;
     border: 2px dashed var(--primary-light);
     aspect-ratio: 1;
 }
 
+/* .game > div {
+    border: 1px dotted var(--dark);
+} */
 
 .game .snake {
-    width: var(--size);
+    /* width: var(--size); */
     aspect-ratio: 1;
     background: var(--primary);
-    opacity: 0.2;
     border-radius: 8px;
 }
 
 .game .head {
-    filter: brightness(110%);
-    background-color: var(--dark);
-    transform: rotate(var(--head-rotate, -90deg)) scaleY(0.5);
+    filter: brightness(50%);
+
+    transform: scaleY(0.5);
 }
 
-.head.T {
-    --head-rotate: -180deg;
-}
-
-.head.L {
-    --head-rotate: 90deg;
-}
-
-.head.R {
-    --head-rotate: -90deg;
-}
-
-.head.B {
-    --head-rotate: 0;
+.head.T, .head.B {
+    transform: scaleY(1) scaleX(0.5);
 }
 
 .positionH {
@@ -81,12 +67,15 @@ main {
 }
 
 .fruit {
-    display: block;
-    opacity: 0.2;
+    display: grid;
+}
+
+.fruit img {
+    aspect-ratio: 1;
+
 }
 
 .btn {
-    opacity: 0.2;
     border: 1px solid var(--primary);
     width: fit-content;
     font-size: 1.3rem;
@@ -107,12 +96,11 @@ a:any-link {
 }
 
 .infos {
-    position: fixed;
     top: var(--spacing);
     right: var(--spacing);
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+    flex-direction: column;
+    max-width: 50%;
 }
 
 .score {

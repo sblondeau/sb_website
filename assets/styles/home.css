@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(720px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(max(360px, calc(50% - 4rem)), 1fr));
     place-items: center;
 }
 
