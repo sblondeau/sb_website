@@ -46,7 +46,7 @@ main {
     object-fit: cover;
     aspect-ratio: 1;
     cursor: pointer;
-    border: 2px dotted var(--dark);
+    border: 2px dotted var(--text);
 }
 
 .project .image img:first-child {
@@ -187,7 +187,7 @@ main {
 
 
 .alive {
-    border-block-end: 2px solid var(--dark);
+    border-block-end: 2px solid var(--text);
     width: 4rem;
     /* margin-block-end: var(--spacing); */
     opacity: 0.1;

@@ -12,7 +12,7 @@ main {
 }
 
 /***** Arrow block ****/
-.arrow-block {
+:where(.arrow-block) {
     display: flex;
     align-items: center;
     width: 100%;
@@ -21,6 +21,7 @@ main {
     font-family: var(--font-arrow);
     --font-size: 1.8;
 }
+
 
 :where(.arrow-block-icon, .arrow, .arrow-block-text) {
     transform: rotate(calc(var(--rotate, 0deg) + var(--rotate-modifier, 0deg))) scale(var(--scale, 0.8));
@@ -43,8 +44,8 @@ main {
     --scale: 0.6;
 }
 
-.arrow-block:hover :where(.arrow, .arrow-block-icon, .arrow-block-text) {
-    --scale: 0.9;
+main > .arrow-block:hover :where(.arrow, .arrow-block-icon, .arrow-block-text) {
+    --scale: 0.8;
     --rotate-modifier: -5deg;
     --opacity: 0.9;
 }
@@ -143,7 +144,7 @@ li a {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    text-decoration: underline dashed var(--dark) 2px;
+    text-decoration: underline dashed var(--text) 2px;
 }
 
 li a .icon {
@@ -165,16 +166,17 @@ li a .icon {
 }
 
 .offer .arrow-block {
-    --translateY: 35%;
+    --translateY: 25%;
     --rotate: 13deg;
     --translateX: -45%;
     transform-origin: left top;
 }
 
-li a:hover+.arrow-block {
+li:hover .arrow-block {
     opacity: 1;
     --translate-modifier: 0%;
     --rotate-modifier: 1;
+    
 }
 
 li:hover {
@@ -237,8 +239,7 @@ aside .arrow-block-text {
     bottom: -115%;
     left: 50%;
     --scale: 0.85, -0.85;
-    filter: drop-shadow(0 0 2px var(--light));
-
+    /* filter: drop-shadow(0 0 2px var(--primary-light)); */
 }
 
 .glasses .arrow:hover {
@@ -384,7 +385,7 @@ aside .arrow-block-text {
     aside .arrow-block-text {
         background-color: var(--light);
         border-radius: 1rem;
-        border: 1px dashed var(--dark);
+        border: 1px dashed var(--text);
         padding: var(--spacing-xs);
     }
 
@@ -401,6 +402,5 @@ aside .arrow-block-text {
         bottom: -5%;
         right: 25%;
     }
-
 } 
 

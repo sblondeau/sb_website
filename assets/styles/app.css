@@ -12,15 +12,15 @@
 
     --font-arrow: 'Kranky', cursive;
     --primary: #055EB0;
-    --primary-light: #d9e2e9;
+    --primary-light: color-mix(in srgb, var(--primary) 10%, var(--surface));
     --primary-light2: #d9e2e955;
 
     --error: rgb(168, 13, 13);
 
-    --neutral: #a3b0bd;
-    --dark: #030d18;
-    --light: #f6f8fa;
-    --light-transparent: #f6f8fa97;
+    --neutral: color-mix(in srgb, var(--primary) 30%, grey);;
+    --text: color-mix(in srgb, var(--primary) 3%, black);;
+    --surface: color-mix(in srgb, var(--primary) 3%, white);;
+
     --font-size: 1;
 }
 
@@ -45,7 +45,7 @@
     min-height: 100vh;
     font-family: var(--font-text); 
     --font-size: 1.4;
-    color: var(--dark);
+    color: var(--text);
     gap: var(--spacing);
 
     min-height: 100vh;
@@ -113,7 +113,7 @@ li {
 }
 
 :where(a:any-link) {
-    color: var(--dark);
+    color: var(--text);
     text-decoration: none;
 }
 
@@ -126,7 +126,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     gap: var(--spacing-xs);
-    color: var(--light);
+    color: var(--surface);
     background-color: var(--primary);
     padding-block: var(--spacing-xs);
     padding-inline: var(--spacing2);
@@ -136,7 +136,7 @@ a:hover {
 }
 
 .btn svg {
-    fill: var(--light);
+    fill: var(--surface);
 }
 
 :is(.btn) {
@@ -144,14 +144,14 @@ a:hover {
 }
 
 :is(.btn:hover) {
-    color: var(--light);
-    background-color: color-mix(in srgb, var(--primary) 90%, var(--light));
+    color: var(--surface);
+    background-color: color-mix(in srgb, var(--primary) 90%, var(--surface));
     transform: scale(1.1);
 }
 
 :is(.btn:active) {
-    color: var(--light);
-    background-color: color-mix(in srgb, var(--primary) 90%, var(--dark));
+    color: var(--surface);
+    background-color: color-mix(in srgb, var(--primary) 90%, var(--text));
 
 }
 
@@ -232,7 +232,7 @@ a:hover {
 :where(.help-text) {
     --font-size: 1.1;
     font-weight: lighter;
-    color: var(--dark);
+    color: var(--text);
 }
 
 main h1 {
@@ -256,24 +256,11 @@ main .title {
 
 main .title h2 {
     --font-size: 2;
-    color: var(--dark);
+    color: var(--text);
     font-weight: 100;
 }
 
-/* @media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--dark);
-        color: var(--light);
-    }
 
-    img:not(.me) {
-        filter: grayscale(100%) invert(100%);
-    }
-
-    a {
-        color: var(--light);
-    }
-} */
 
 /****** NAV *****/
 nav {
@@ -348,15 +335,38 @@ footer {
     transform: scale(1.1);
 }
 
-@media screen and (width < 720px) {
-    .hide-sm {
-        display: none;
-    }
-}
-
 .legal {
     --font-size: 1.2;
     position: absolute;
     bottom: var(--spacing-xs);
     right: var(--spacing-xs);
 }
+
+@media screen and (width < 720px) {
+    :is(.hide-sm) {
+        display: none;
+    }
+}
+ 
+
+
+/* @media (prefers-color-scheme: dark) {
+    :root {
+        --primary-light: color-mix(in srgb, var(--primary) 30%, var(--text));
+    }
+
+    body {
+        background-color: var(--text);
+        color: var(--surface);
+    }
+
+    img:not(.me) {
+        filter: grayscale(100%) invert(100%);
+    }
+
+    a {
+        color: var(--surface);
+    }
+} */
+
+

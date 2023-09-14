@@ -88,7 +88,7 @@ article h2 {
 }
 
 article:hover {
-    border-color: var(--dark);
+    border-color: var(--text);
 }
 
 article:hover .article-content>.icon {

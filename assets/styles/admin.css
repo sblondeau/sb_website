@@ -22,7 +22,7 @@ main h1 {
 
 main .title h2 {
     --font-size: 2;
-    color: var(--dark);
+    color: var(--text);
     font-weight: 100;
 }
 
@@ -181,7 +181,7 @@ article h2 > div {
 }
 
 .project-image:hover {
-    border-color: var(--dark);
+    border-color: var(--text);
 }
 
 .project .upload {
