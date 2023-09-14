@@ -48,16 +48,17 @@ class SnakeController extends AbstractController
     public function turn(SessionInterface $session): Response
     {
         $map = $session->get('map');
-
-        try {
-            $map->turn();
-        } catch (RuntimeException $exception) {
-            $error = $exception->getMessage();
-            exit();
-        } catch (Exception $exception) {
-            $error = $exception->getMessage();
+        if ($map instanceof Map) {
+            try {
+                $map->turn();
+            } catch (RuntimeException $exception) {
+                $error = $exception->getMessage();
+                exit();
+            } catch (Exception $exception) {
+                $error = $exception->getMessage();
+            }
+            $session->set('map',  $map);
         }
-        $session->set('map',  $map);
         return $this->render('snake/_map.html.twig', [
             'map' => $session->get('map'),
             'error' => $error ?? '',

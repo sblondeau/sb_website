@@ -278,8 +278,18 @@ nav .icon {
     min-width: min-content;
 }
 
-nav h1 {
+nav .brand {    
+    display: flex;
+    align-items: center;
     --font-size: 2;
+    color: var(--primary);
+}
+
+nav .catchphrase {
+    --font-size: 1.4;
+    color: var(--primary);
+    padding-block-start: 4px;
+ 
 }
 
 nav :is(.me) {

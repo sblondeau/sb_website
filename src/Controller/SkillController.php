@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SkillController extends AbstractController
 {
-    #[Route('/skill', name: 'app_skill')]
+    #[Route('/mes-competences', name: 'app_skill')]
     public function index(SkillCategoryRepository $skillCategoryRepository): Response
     {
         $skillCategories = $skillCategoryRepository->findBy([], ['position' => 'ASC']);

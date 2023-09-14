@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class OfferController extends AbstractController
 {
-    #[Route('/offer', name: 'app_offer')]
+    #[Route('/mon-offre', name: 'app_offer')]
     public function index(): Response
     {
         return $this->render('offer/index.html.twig', [
