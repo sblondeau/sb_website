@@ -2,6 +2,8 @@
 
 namespace App\Enum;
 
+use Exception;
+
 enum BlockOrientation: string
 {
     case BT = 'BT';
@@ -14,7 +16,7 @@ enum BlockOrientation: string
     case LL = 'LL';
     case TR = 'TR';
     case LB = 'LB';
-    case RT = 'RT';  
+    case RT = 'RT';
     case BL = 'BL';
     case RB = 'RB';
     case TL = 'TL';
@@ -25,13 +27,14 @@ enum BlockOrientation: string
 
     public static function orientation(BlockOrientation $blockOrientation): string
     {
-        return match($blockOrientation) {
+        return match ($blockOrientation) {
             BlockOrientation::BT, BlockOrientation::TB, BlockOrientation::TT, BlockOrientation::BB => 'V',
             BlockOrientation::RL, BlockOrientation::LR, BlockOrientation::RR, BlockOrientation::LL => 'H',
             BlockOrientation::LB, BlockOrientation::TR => 'LB',
             BlockOrientation::RT, BlockOrientation::BL => 'RT',
             BlockOrientation::RB, BlockOrientation::TL => 'TL',
             BlockOrientation::BR, BlockOrientation::LT => 'BR',
+            default => throw new Exception('Unexpected case'),
         };
     }
 }

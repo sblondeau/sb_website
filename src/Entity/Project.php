@@ -136,11 +136,14 @@ class Project
     {
         return $this->tags;
     }
+
     public function getTagList(): ?array
     {
         $tags = explode(',', $this->tags);
+        
         return array_map('trim', $tags);
     }
+    
     public function setTags(?string $tags): static
     {
         $this->tags = $tags;

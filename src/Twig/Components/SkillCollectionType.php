@@ -23,4 +23,5 @@ final class SkillCollectionType extends AbstractController
     protected function instantiateForm(): FormInterface
     {
         return $this->createForm(SkillCategoryType::class, $this->skillCategory);
-    }}
+    }
+}

@@ -14,23 +14,22 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 #[AsLiveComponent()]
 final class ProjectImageComponent
 {
-    use DefaultActionTrait;   
-    
+    use DefaultActionTrait;
+
     #[LiveProp(writable: true)]
     public ?Project $project = null;
 
-    #[LiveProp(writable:true)]
-    public ?ProjectImage $actualImage = null;    
-   
-    public function __construct(private ProjectImageRepository $projectImageRepository) 
+    #[LiveProp(writable: true)]
+    public ?ProjectImage $actualImage = null;
+
+    public function __construct()
     {
     }
 
 
     #[LiveAction()]
-    public function zoom(#[LiveArg()] ProjectImage $projectImage)
+    public function zoom(#[LiveArg()] ProjectImage $projectImage): void
     {
         $this->actualImage = $projectImage;
     }
-
 }

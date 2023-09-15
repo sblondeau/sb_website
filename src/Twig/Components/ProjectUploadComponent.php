@@ -86,7 +86,7 @@ class ProjectUploadComponent extends AbstractController
     }
 
     #[LiveAction()]
-    public function deleteFile(#[LiveArg()] ProjectImage $projectImage)
+    public function deleteFile(#[LiveArg()] ProjectImage $projectImage): void
     {
         unlink(__DIR__ . '/../../../public/uploads/' . $projectImage->getName());
         $this->entityManager->remove($projectImage);

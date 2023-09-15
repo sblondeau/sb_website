@@ -18,12 +18,16 @@ class SnakeController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(SessionInterface $session): Response
     {
-        if (!$session->has('map')) {
+        if ($session->has('map')) {
+            $session->remove('map');
+        }
+
+        
             $snake = new Snake();
             $session->set('map', new Map(20, $snake));
             $snake->addBlock(new SnakeBlock(4, 5));
             $snake->addBlock(new SnakeBlock(3, 5));
-        }
+        
 
         return $this->render('snake/index.html.twig', [
             'map' => $session->get('map'),
@@ -39,7 +43,7 @@ class SnakeController extends AbstractController
         } catch (Exception $exception) {
             $error = $exception->getMessage();
         }
-        $session->set('map',  $map);
+        $session->set('map', $map);
 
         return new Response($error ?? '');
     }
@@ -57,21 +61,13 @@ class SnakeController extends AbstractController
             } catch (Exception $exception) {
                 $error = $exception->getMessage();
             }
-            $session->set('map',  $map);
+            $session->set('map', $map);
         }
+        
         return $this->render('snake/_map.html.twig', [
             'map' => $session->get('map'),
             'error' => $error ?? '',
         ]);
     }
 
-    #[Route('/reset', name: 'reset')]
-    public function reset(SessionInterface $session): Response
-    {
-        if ($session->has('map')) {
-            $session->remove('map');
-        }
-
-        return $this->redirectToRoute('snake_index');
-    }
 }

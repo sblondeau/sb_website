@@ -3,7 +3,7 @@
 	<h2>Score : {{ map.score }}</h2>
 	<div class="">
 		<button class="btn" {{ stimulus_action('game', 'startGame') }}>Start</button>
-		<a class="btn btn-outline" href="{{ path('snake_reset') }}">Reset</a>
+		<a class="btn btn-outline" href="{{ path('snake_index') }}" target="_top">Reset</a>
 	</div>
 
 </div>

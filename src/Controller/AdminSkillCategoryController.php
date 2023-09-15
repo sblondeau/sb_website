@@ -23,8 +23,11 @@ class AdminSkillCategoryController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_skill_category_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, SkillCategoryRepository $skillCategoryRepository): Response
-    {
+    public function new(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        SkillCategoryRepository $skillCategoryRepository,
+    ): Response {
         $skillCategory = new SkillCategory();
         $form = $this->createForm(SkillCategoryType::class, $skillCategory);
         $form->handleRequest($request);
@@ -54,8 +57,11 @@ class AdminSkillCategoryController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_skill_category_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, SkillCategory $skillCategory, EntityManagerInterface $entityManager): Response
-    {
+    public function edit(
+        Request $request,
+        SkillCategory $skillCategory,
+        EntityManagerInterface $entityManager,
+    ): Response {
         $form = $this->createForm(SkillCategoryType::class, $skillCategory);
         $form->handleRequest($request);
 
@@ -70,11 +76,15 @@ class AdminSkillCategoryController extends AbstractController
             'form' => $form,
         ]);
     }
-    #[Route('/sort/{id}/{direction}', name: 'app_admin_skill_category_sort', methods: ['POST'])]
-    public function sort(Request $request, SkillCategory $skillCategory, string $direction, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('sort' . $skillCategory->getId(), $request->request->get('_token'))) {
 
+    #[Route('/sort/{id}/{direction}', name: 'app_admin_skill_category_sort', methods: ['POST'])]
+    public function sort(
+        Request $request,
+        SkillCategory $skillCategory,
+        string $direction,
+        EntityManagerInterface $entityManager,
+    ): Response {
+        if ($this->isCsrfTokenValid('sort' . $skillCategory->getId(), $request->request->get('_token'))) {
             $skillCategory->setDescription($direction);
             $entityManager->flush();
         }

@@ -3,10 +3,10 @@
 namespace App\Twig\Components;
 
 use App\Entity\SkillCategory;
-use Doctrine\ORM\EntityManager;
 use App\Repository\SkillCategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
@@ -36,7 +36,7 @@ final class SortCategoryComponent extends AbstractController
 
 
     #[LiveAction]
-    public function changeOrder(#[LiveArg] string $direction)
+    public function changeOrder(#[LiveArg] string $direction): Response
     {
         $actualPosition = $this->skillCategory->getPosition();
         $newPosition = $actualPosition + self::DIRECTIONS[$direction];

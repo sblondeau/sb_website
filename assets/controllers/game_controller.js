@@ -18,16 +18,19 @@ export default class extends Controller {
 
 
     connect() {
+        clearInterval(this.interval);
+        console.log(this.interval);
         this.movable = true;
     }
 
     startGame() {
+        clearInterval(this.interval);
         this.startRefreshing()
     }
 
     startRefreshing() {
         let game = document.getElementById('game');
-        this.score = game.dataset.score;  
+        this.score = game.dataset.score;
         this.interval = setInterval(() => {
             this.turn()
             // clearInterval(this);
@@ -35,7 +38,7 @@ export default class extends Controller {
         }, 400)
     }
 
-    turn(event) {
+    turn() {
         fetch("/snake/turn")
             .then(response => response.text())
             .then(html => {
@@ -43,6 +46,7 @@ export default class extends Controller {
             })
         this.movable = true;
     }
+
 
     move(event) {
         const directions = {

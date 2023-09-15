@@ -66,7 +66,7 @@ class Snake
         return $this;
     }
 
-    private function isExistingBlock($snakeBlock): void
+    private function isExistingBlock(SnakeBlock $snakeBlock): void
     {
         $existingBlock = array_filter(
             $this->snakeBlocks,
@@ -82,56 +82,63 @@ class Snake
         }
     }
 
-    public function move(int $x, int $y)
+    public function move(int $x, int $y): void
     {
         $newHead = new SnakeBlock($x, $y);
 
         $this->setHead($newHead);
     }
 
-    public function setBlocksPositions()
+    public function setBlocksPositions(): void
     {
         for ($i = 1; $i < count($this->getSnakeBlocks()) - 1; $i++) {
             $currentBlock = $this->getSnakeBlocks()[$i];
- 
+
             $currentBlock->setPosition(BlockOrientation::orientation($this->currentBlockPosition($i)));
         }
     }
 
-    public function blockPosition($current, $target): string
+    public function blockPosition(int $current, int $target): string
     {
         $horizontal = $this->getSnakeBlocks()[$current]->getX() <=> $this->getSnakeBlocks()[$current + $target]->getX();
         $vertical = $this->getSnakeBlocks()[$current]->getY() <=> $this->getSnakeBlocks()[$current + $target]->getY();
-        $horizontalDelta = $this->getSnakeBlocks()[$current]->getX() - $this->getSnakeBlocks()[$current + $target]->getX();
-        $verticalDelta =  $this->getSnakeBlocks()[$current]->getY() - $this->getSnakeBlocks()[$current + $target]->getY();
-        
+        $horizontalDelta =
+            $this->getSnakeBlocks()[$current]->getX() - $this->getSnakeBlocks()[$current + $target]->getX();
+        $verticalDelta =
+            $this->getSnakeBlocks()[$current]->getY() - $this->getSnakeBlocks()[$current + $target]->getY();
+
         if (abs($horizontal) > abs($vertical)) {
-            $direction = $horizontal > 0 && abs($horizontalDelta) === 1  || $horizontal < 0 && abs($horizontalDelta) > 1 ? self::LEFT : self::RIGHT;
+            $direction = $horizontal > 0 && abs($horizontalDelta) === 1  ||
+                $horizontal < 0 && abs($horizontalDelta) > 1
+                ? self::LEFT
+                : self::RIGHT;
         } elseif (abs($horizontal) < abs($vertical)) {
-            $direction = $vertical > 0 && abs($verticalDelta) === 1 || $vertical< 0 && abs($verticalDelta) > 1 ? self::TOP : self::BOTTOM;
+            $direction = $vertical > 0 && abs($verticalDelta) === 1 || $vertical < 0 && abs($verticalDelta) > 1
+                ? self::TOP
+                : self::BOTTOM;
         }
 
-        return $direction;
+        return $direction ?? '';
     }
 
-    private function previousBlockPosition($pos): string
+    private function previousBlockPosition(int $pos): string
     {
         return $this->blockPosition($pos, -1);
     }
 
-    private function nextBlockPosition($pos): string
+    private function nextBlockPosition(int $pos): string
     {
         return self::INVERSE_DIRECTIONS[$this->blockPosition($pos, 1)];
     }
 
-    private function currentBlockPosition($i): BlockOrientation
+    private function currentBlockPosition(int $i): BlockOrientation
     {
         $position = $this->nextBlockPosition($i) . $this->previousBlockPosition($i);
 
         return BlockOrientation::tryFrom($position);
     }
 
-    public function checkPossibleDirection(string $direction)
+    public function checkPossibleDirection(string $direction): void
     {
         if ($this->getDirection() === self::INVERSE_DIRECTIONS[$direction]) {
             throw new Exception('wrong direction');

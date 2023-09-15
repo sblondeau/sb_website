@@ -13,7 +13,7 @@ class ProjectController extends AbstractController
     public function index(ProjectRepository $projectRepository): Response
     {
         $projects = $projectRepository->findBy([], ['date' => 'DESC']);
-        
+
         return $this->render('project/index.html.twig', [
             'projects' => $projects,
         ]);

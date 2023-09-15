@@ -11,7 +11,6 @@ class OfferController extends AbstractController
     #[Route('/mon-offre', name: 'app_offer')]
     public function index(): Response
     {
-        return $this->render('offer/index.html.twig', [
-        ]);
+        return $this->render('offer/index.html.twig', []);
     }
 }

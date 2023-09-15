@@ -32,7 +32,7 @@ class Map
         return $fruit;
     }
 
-    public function turn()
+    public function turn(): void
     {
         if (!$this->gameOver()) {
             $direction = $this->getSnake()->getDirection();
@@ -59,7 +59,7 @@ class Map
         return false;
     }
 
-    public function move(string $direction)
+    public function move(string $direction): void
     {
         $this->getSnake()->checkPossibleDirection($direction);
 
@@ -67,7 +67,7 @@ class Map
         $y = $this->getSnake()->getHead()->getY() + Snake::DIRECTIONS[$direction][1];
         $x <= $this->size - 1 ?: $x = 0;
         $y >= 0 ?: $y = $this->size - 1;
-        $x >= 0 ?: $x = $this->size - 1;;
+        $x >= 0 ?: $x = $this->size - 1;
         $y <= $this->size - 1 ?: $y = 0;
         $this->getSnake()->move($x, $y);
 

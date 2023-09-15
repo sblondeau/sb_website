@@ -30,7 +30,7 @@ class ContactController extends AbstractController
                 ->html($this->renderView('contact/email.html.twig', ['contact' => $contact]));
 
             $mailer->send($email);
-            
+
             return $this->redirectToRoute('app_contact');
         }
 
