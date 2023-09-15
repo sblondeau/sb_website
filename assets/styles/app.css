@@ -11,15 +11,15 @@
     --font-text: 'Jura', sans-serif;
 
     --font-arrow: 'Kranky', cursive;
+
     --primary: #055EB0;
     --primary-light: color-mix(in srgb, var(--primary) 10%, var(--surface));
-    --primary-light2: #d9e2e955;
+    --neutral: color-mix(in srgb, var(--primary) 30%, grey);
+    --text: color-mix(in srgb, var(--primary) 3%, black);
+    --surface: color-mix(in srgb, var(--primary) 3%, white);
 
-    --error: rgb(168, 13, 13);
-
-    --neutral: color-mix(in srgb, var(--primary) 30%, grey);;
-    --text: color-mix(in srgb, var(--primary) 3%, black);;
-    --surface: color-mix(in srgb, var(--primary) 3%, white);;
+    --primary-light2: color-mix(in srgb, var(--primary) 15%, transparent);
+    --error: rgba(168, 13, 13, 0.7);
 
     --font-size: 1;
 }
@@ -38,6 +38,7 @@
     margin: 0;
     padding: 0;
     background-image: url(../images/paper_background.png);
+    background-color: var(--surface);
     background-repeat: repeat-x repeat-y;
     position: relative;
     animation: slide ease-in-out 0.5s;
@@ -217,6 +218,10 @@ a:hover {
     color: var(--error);
 }
 
+::placeholder {
+    color: var(--text);
+}
+
 :where(input, select, textarea) {
     width: 100%;
     border: 1px solid var(--neutral);
@@ -362,20 +367,28 @@ footer {
 
 /* @media (prefers-color-scheme: dark) {
     :root {
-        --primary-light: color-mix(in srgb, var(--primary) 30%, var(--text));
+        --primary: color-mix(in srgb, #055EB0 80%, white);
+        --primary-light: color-mix(in srgb, var(--primary) 10%, color-mix(in srgb, var(--surface) 70%, transparent));
+    
+        --neutral: color-mix(in srgb, var(--primary) 30%, black);
+        --text: color-mix(in srgb, var(--primary) 10%, white);; 
+        --surface: color-mix(in srgb, var(--primary) 15%, rgba(0, 0, 0));
     }
 
     body {
-        background-color: var(--text);
-        color: var(--surface);
+        text-shadow: 1px 1px 2px var(--surface);
     }
 
     img:not(.me) {
         filter: grayscale(100%) invert(100%);
     }
 
-    a {
-        color: var(--surface);
+    :root:has(#dark-mode:checked) {
+        --primary: #055EB0;
+        --primary-light: color-mix(in srgb, var(--primary) 10%, var(--surface));
+        --neutral: color-mix(in srgb, var(--primary) 30%, grey);
+        --text: color-mix(in srgb, var(--primary) 3%, black);
+        --surface: color-mix(in srgb, var(--primary) 3%, white);
     }
 } */
 
