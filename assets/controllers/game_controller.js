@@ -26,7 +26,7 @@ export default class extends Controller {
     }
 
     startRefreshing() {
-        game = document.getElementById('game');
+        let game = document.getElementById('game');
         this.score = game.dataset.score;  
         this.interval = setInterval(() => {
             this.turn()
