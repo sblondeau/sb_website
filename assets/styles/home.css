@@ -144,7 +144,6 @@ li a {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    text-decoration: underline dashed var(--text) 2px;
 }
 
 li a .icon {

@@ -9,7 +9,6 @@
 
     --font-title: 'Italiana', serif;
     --font-text: 'Jura', sans-serif;
-
     --font-arrow: 'Kranky', cursive;
 
     --primary: #055EB0;
@@ -44,10 +43,11 @@
     animation: slide ease-in-out 0.5s;
     box-shadow: -1rem 0 3rem -1rem var(--neutral);
     min-height: 100vh;
-    font-family: var(--font-text); 
+    font-family: var(--font-text);
     --font-size: 1.4;
     color: var(--text);
     gap: var(--spacing);
+    color-scheme: light;
 
     min-height: 100vh;
 }
@@ -180,7 +180,7 @@ a:hover {
 }
 
 .badge {
-    --font-size:1;
+    --font-size: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,6 +197,7 @@ a:hover {
 .badge:hover {
     background-color: var(--primary-light);
 }
+
 .icon {
     width: clamp(calc(var(--font-size) * 0.8rem), calc(var(--font-size) * 1.25vw), calc(var(--font-size) * 1rem));
 }
@@ -283,7 +284,7 @@ nav .icon {
     min-width: min-content;
 }
 
-nav .brand {    
+nav .brand {
     display: flex;
     align-items: center;
     --font-size: 2;
@@ -294,7 +295,7 @@ nav .catchphrase {
     --font-size: 1.4;
     color: var(--primary);
     padding-block-start: 4px;
- 
+
 }
 
 nav :is(.me) {
@@ -336,6 +337,7 @@ footer {
     padding: var(--spacing2);
     padding-block-end: var(--spacing);
     margin-block-start: var(--spacing2);
+    margin-block-end: var(--spacing2);
     border-block-start: 2px dashed var(--primary-light);
 }
 
@@ -353,8 +355,8 @@ footer {
 .legal {
     --font-size: 1.2;
     position: absolute;
-    bottom: var(--spacing-xs);
-    right: var(--spacing-xs);
+    bottom: var(--spacing2);
+    right: var(--spacing2);
 }
 
 @media screen and (width < 720px) {
@@ -362,34 +364,3 @@ footer {
         display: none;
     }
 }
- 
-
-
-/* @media (prefers-color-scheme: dark) {
-    :root {
-        --primary: color-mix(in srgb, #055EB0 80%, white);
-        --primary-light: color-mix(in srgb, var(--primary) 10%, color-mix(in srgb, var(--surface) 70%, transparent));
-    
-        --neutral: color-mix(in srgb, var(--primary) 30%, black);
-        --text: color-mix(in srgb, var(--primary) 10%, white);; 
-        --surface: color-mix(in srgb, var(--primary) 15%, rgba(0, 0, 0));
-    }
-
-    body {
-        text-shadow: 1px 1px 2px var(--surface);
-    }
-
-    img:not(.me) {
-        filter: grayscale(100%) invert(100%);
-    }
-
-    :root:has(#dark-mode:checked) {
-        --primary: #055EB0;
-        --primary-light: color-mix(in srgb, var(--primary) 10%, var(--surface));
-        --neutral: color-mix(in srgb, var(--primary) 30%, grey);
-        --text: color-mix(in srgb, var(--primary) 3%, black);
-        --surface: color-mix(in srgb, var(--primary) 3%, white);
-    }
-} */
-
-
