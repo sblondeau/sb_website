@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Freelance | Erreur
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="title">
+			<h1>Page introuvable</h1>
+			<h2>Essayez une autre URL !</h2>
+		</div>
+	<footer>
+		<a class="" href="{{ path('app_home')}}">
+			<img class="icon" src="{{ asset('images/home.png') }}" alt="">
+			Retour à l'accueil
+		</a>
+	</footer>
+{% endblock %}
