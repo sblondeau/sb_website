@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SB Freelance | Contact
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" data-turbo-track="reload" href="{{ asset('styles/contact.css') }}">
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="title">
+			<h1>Carte de visite</h1>
+			<h2>Scannez le QR code pour m'ajouter à vos contacts</h2>
+		</div>
+		<div class="qrcode">
+			<img src="{{ asset('images/qrcode.png') }}" alt="QR code Sylvain Blondeau">
+		</div>
+
+	</main>
+{% endblock %}

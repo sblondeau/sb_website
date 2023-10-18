@@ -63,3 +63,14 @@ textarea {
     width: 5rem;
     transform: rotate(-55deg) scaleX(-1);
 }
+
+.qrcode {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+    img {
+        aspect-ratio: 1;
+        width: 350px;
+    }
+}
