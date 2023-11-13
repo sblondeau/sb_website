@@ -49,7 +49,12 @@ main > .arrow-block:hover :where(.arrow, .arrow-block-icon, .arrow-block-text) {
     --rotate-modifier: -5deg;
     --opacity: 0.9;
 }
-
+/************ SOCIAL *********/
+.social {
+    position: absolute;
+    top: var(--spacing2);
+    right: var(--spacing2);
+}
 /************ HEADER *********/
 header {
     position: relative;
@@ -382,7 +387,7 @@ aside .arrow-block-text {
     }
 
     aside .arrow-block-text {
-        background-color: var(--light);
+        background-color: var(--surface);
         border-radius: 1rem;
         border: 1px dashed var(--text);
         padding: var(--spacing-xs);
