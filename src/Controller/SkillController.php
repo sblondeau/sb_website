@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SkillController extends AbstractController
 {
-    public const CV_PATH_NAME = 'CV_Sylvain_Blondeau_Freelance.pdf';
+    public const CV_PATH_NAME = 'CV_Sylvain-Blondeau_LeadDev-PHP-Symfony.pdf';
 
     #[Route('/mes-competences', name: 'app_skill')]
     public function index(SkillCategoryRepository $skillCategoryRepository): Response
