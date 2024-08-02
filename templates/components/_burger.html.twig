@@ -1,0 +1,25 @@
+<button class="menu" popovertarget="menu">
+	<img src="{{ asset('images/menu.png') }}" alt="">
+</button>
+<div popover id="menu" class="popover-menu">
+	<ul>
+		<li class="skills">
+			<a href="{{ path('app_skill') }}">
+				<img class="icon" src="{{ asset('images/skills.png') }}" alt="">
+				Mes compétences
+			</a>
+		</li>
+		<li class="portfolio">
+			<a href="{{ path('app_project') }}">
+				<img class="icon" src="{{ asset('images/portfolio.png') }}" alt="">
+				Mes réalisations
+			</a>
+		</li>
+		<li class="offer">
+			<a href="{{ path('app_offer') }}">
+				<img class="icon" src="{{ asset('images/offer.png') }}" alt="">
+				Mon offre
+			</a>
+		</li>
+	</ul>
+</div>

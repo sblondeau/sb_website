@@ -6,27 +6,31 @@
 {% endblock %}
 
 {% block title %}
-	Sylvain Blondeau - Développeur Freelance PHP Symfony - 100% télétravail
+	Sylvain Blondeau - Développeur Freelance PHP Symfony
 {% endblock %}
 
 {% block header %}{% endblock %}
 
 {% block body %}
-	<div class="container">
+	<nav>
 		{% include 'components/_social.html.twig' %}
+		{% include 'components/_burger.html.twig' %}
+	</nav>
+	<div class="container">
+
 		<header>
 			<h1>Sylvain BLONDEAU</h1>
 			<div>
 				<h2>
 					<img class="icon" src="{{ asset('images/programming.png')}}" alt="">
-					Développeur sénior
+					Développeur senior
 					<strong>PHP/Symfony</strong>
 				</h2>
 				<img class="icon-dark php-icon hide-sm" src="{{ asset('images/php.png') }}" alt="">
 
 				<h2>
 					<img class="icon icon-dark" src="{{ asset('images/work-from-home.png')}}" alt="">
-					Freelance | 100% télétravail
+					Freelance
 				</h2>
 				<img class="icon-dark remote-icon hide-sm" src="{{ asset('images/webinar.png') }}" alt="">
 			</div>
@@ -93,7 +97,7 @@
 		</main>
 	</div>
 	<aside>
-		<img class="me" src="{{ asset('images/sylvain.png') }}" alt="Sylvain Blondeau - Développeur Freelance PHP Symfony - 100% télétravail, wearing glasses and a cool t-shirt">
+		<img class="me" src="{{ asset('images/sylvain.png') }}" alt="Sylvain Blondeau - Développeur Freelance PHP Symfony, wearing glasses and a cool t-shirt">
 		<div class="arrow-block glasses">
 			<span class="arrow-block-text">
 				J'ai des lunettes, un vrai gage de sérieux

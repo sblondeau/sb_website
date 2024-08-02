@@ -1,7 +1,11 @@
 body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(max(360px, calc(50% - 4rem)), 1fr));
+    grid-template-rows: 50px 1fr;
     place-items: center;
+    width: var(--container-width);
+    margin: auto;
+    box-shadow: none;
 }
 
 main {
@@ -9,6 +13,13 @@ main {
     flex-direction: column;
     align-items: center;
     height: 100%;
+}
+
+nav {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 /***** Arrow block ****/
@@ -44,17 +55,14 @@ main {
     --scale: 0.6;
 }
 
-main > .arrow-block:hover :where(.arrow, .arrow-block-icon, .arrow-block-text) {
+main>.arrow-block:hover :where(.arrow, .arrow-block-icon, .arrow-block-text) {
     --scale: 0.8;
     --rotate-modifier: -5deg;
     --opacity: 0.9;
 }
-/************ SOCIAL *********/
-.social {
-    position: absolute;
-    top: var(--spacing2);
-    right: var(--spacing2);
-}
+
+
+
 /************ HEADER *********/
 header {
     position: relative;
@@ -152,7 +160,7 @@ li a {
 }
 
 li a .icon {
-    --font-size:2.2;
+    --font-size: 2.2;
 }
 
 .skills .arrow-block {
@@ -180,7 +188,7 @@ li:hover .arrow-block {
     opacity: 1;
     --translate-modifier: 0%;
     --rotate-modifier: 1;
-    
+
 }
 
 li:hover {
@@ -206,7 +214,6 @@ aside {
     border-radius: 1.5rem;
     box-shadow: 0.5rem 0.5rem 1rem -0.5rem var(--neutral);
     transition: 0.3s;
-    /* width: clamp(280px, 50vw, 360px); */
 }
 
 .me:hover {
@@ -406,5 +413,4 @@ aside .arrow-block-text {
         bottom: -5%;
         right: 25%;
     }
-} 
-
+}
