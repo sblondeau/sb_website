@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Mailer\MailerInterface;
 
 class ContactController extends AbstractController
-{
+{    
     #[Route('/contact', name: 'app_contact')]
     public function index(Request $request, MailerInterface $mailer): Response
     {

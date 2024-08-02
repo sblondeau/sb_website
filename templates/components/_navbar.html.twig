@@ -1,10 +1,10 @@
 <nav>
 	<a class="brand" href="{{ path('app_home')}}">
-		<img class="icon hide-sm" src="{{ asset('images/home.png') }}" alt="home icon">
+		<img class="me" src="{{ asset('images/sylvain_round.png') }}" alt="Sylvain Blondeau - Développeur Freelance PHP Symfony">
 		Sylvain Blondeau
 	</a>
 
-	<div class="catchphrase">Développeur sénior PHP / Symfony</div>
+	<div class="catchphrase hide-sm">Développeur senior PHP / Symfony</div>
 	{% include 'components/_social.html.twig' %}
-	<img class="me" src="{{ asset('images/sylvain.png') }}" alt="Sylvain Blondeau - Développeur Freelance PHP Symfony - 100% télétravail, wearing glasses and a cool t-shirt">
+	{% include 'components/_burger.html.twig' %}
 </nav>
